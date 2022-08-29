@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../context/auth.context';
 
 
-
-
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -65,6 +63,7 @@ function LoginPage() {
 
       <p>Don't have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/"}>Home</Link>
     </div>
   )
 }
