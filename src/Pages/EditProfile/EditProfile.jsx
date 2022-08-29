@@ -50,11 +50,12 @@ function EditProfile() {
       <h3>Edit Profile</h3>
 
       <form onSubmit={handleSubmit}>
+
         <label htmlFor="name">Name</label>
         <input type="text" name="name" value={user.name} onChange={handleName} />
 
         <label htmlFor="email">Email</label>
-        <input type="email" name="email" value={user.email} onChange={handleEmail} />
+        <input type="email" name="email" placeholder={user.email} onChange={handleEmail} />
 
         <button type="submit">Edit Profile</button>
       </form>
