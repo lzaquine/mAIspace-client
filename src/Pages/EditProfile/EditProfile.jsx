@@ -57,6 +57,13 @@ function EditProfile() {
         <label htmlFor="email">Email</label>
         <input type="email" name="email" placeholder={user.email} onChange={handleEmail} />
 
+        <label htmlFor="select"></label>
+        <select name="select" id="select">Field:
+            <option placeholder={user.field}>{user.field}</option>
+            <option value="Front End">Fun</option>
+            <option value="Back End">Business</option>
+            </select>
+
         <button type="submit">Edit Profile</button>
       </form>
       <>
