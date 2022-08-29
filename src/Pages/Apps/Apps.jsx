@@ -1,16 +1,13 @@
-import { Link, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Apps() {
-  const { id } = useParams();
-  const [app, setApp] = useState(null);
-
-  
-
   return (
     <div>
       <h1>Apps</h1>
-      <p>{id}</p>
+      <Link to="/app/Marv">Marv</Link>
+      <Link to="/app/Chat">Chat</Link>
+
 
       <Link to="/">Home</Link>
     </div>
