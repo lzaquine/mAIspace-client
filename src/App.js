@@ -7,6 +7,7 @@ import Profile from "./Pages/Profile/Profile";
 import Apps from "./Pages/Apps/Apps";
 import Marv from "./Pages/Apps/Marv";
 import Chat from "./Pages/Apps/Chat";
+import EditProfile from "./Pages/EditProfile/EditProfile";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/app" element={<Apps />} />
         <Route path="/app/:appName" element={<Marv />} />
         <Route path="/app/:appName" element={<Chat />} />
+        <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>
   );
