@@ -17,7 +17,8 @@ function Profile() {
   const deleteProfile = () => {
       axios.delete(`${process.env.REACT_APP_API_URL}/profile/${user._id}`)
       .then(() => {
-        navigate("/")
+        logout();
+        navigate("/signup")
       })
       .catch((err) => console.log(err));
   }

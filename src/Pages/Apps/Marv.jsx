@@ -1,23 +1,19 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 function Marv() {
   
-  const [prompt, setPrompt] = useState(null);
+  const [prompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
-
-
-  /* const navigate = useNavigate(); */
 
   const getMarv = async () => {
     try {
       let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/Fisherman`);
-
-      
+      setQuestion(response.data.question);
       setAnswer(response.data.answer);
       console.log(response.data)
     } catch (error) {
@@ -31,7 +27,6 @@ function Marv() {
 
   
   const handleQuestion = (e) => setQuestion(e.target.value);
- /*  const handleAnswer = (e) => setAnswer(e.target.value); */
 
 
   const handleSubmit = (e) => {
@@ -47,22 +42,22 @@ function Marv() {
       })
       .catch((err) => console.log(err));
     };
-    console.log(answer)
 
   return (
     <div>
       <h1>Fisherman</h1>
 
       <h2>{prompt}</h2>
+      
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="question">Question:</label><br/>
         <input type="text" name="question" value={question} onChange={handleQuestion} /><br/>
-        {/* <input type="text" name="answer" value={answer} onChange={handleAnswer}/> */}
         <button type="submit">Submit</button>
       </form>
       <h3>{question}</h3>
-      <h3>{answer}</h3>
+
+      {answer && (<h3>{answer}</h3>)}
 
       <Link to="/">Home</Link>
     </div>
