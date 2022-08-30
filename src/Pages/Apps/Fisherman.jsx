@@ -57,7 +57,7 @@ function Fisherman() {
       </form>
       <h3>{question}</h3>
 
-      {answer && (<h3>{answer}</h3>)} {/* getting a response but have to refresh it to see */}
+      {answer && (<h3>{answer}</h3>)} {/* getting a response but have to refresh it twice to see */}
 
       <Link to="/">Home</Link>
     </div>
