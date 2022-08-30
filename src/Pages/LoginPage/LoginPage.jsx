@@ -7,6 +7,7 @@ import { AuthContext } from '../../context/auth.context';
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [field, setField] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
 
   const navigate = useNavigate();
@@ -16,11 +17,12 @@ function LoginPage() {
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
+  const handleField = (e) => setField(e.target.value);
 
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const body = { email, password };
+    const body = { email, password, field };
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, body)
       .then((response) => {
@@ -56,6 +58,13 @@ function LoginPage() {
           value={password}
           onChange={handlePassword}
         />
+
+        <label htmlFor="select"></label>
+        <select name="select" id="select" onChange={handleField}>Field:
+            <option value={field}>{field}</option>
+            <option value="Fun">Fun</option>
+            <option value="Business">Business</option>
+            </select>
 
         <button type="submit">Login</button>
       </form>

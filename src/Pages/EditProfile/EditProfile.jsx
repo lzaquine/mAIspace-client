@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/auth.context';
 function EditProfile() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [field, setField] = useState('');
   const { user }  = useContext(AuthContext); 
 
 
@@ -28,17 +29,19 @@ function EditProfile() {
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
+  const handleField = (e) => setField(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { name, email };
+    const body = { name, email, field };
 
     axios
       .put(`${process.env.REACT_APP_API_URL}/editprofile/${user._id}`, body)
       .then(() => {
         setName('');
         setEmail('');
+        setField('');
         navigate(`/profile`);
       })
       .catch((err) => console.log(err));
@@ -52,16 +55,16 @@ function EditProfile() {
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" value={user.name} onChange={handleName} />
+        <input type="text" name="name" placeholder={name} onChange={handleName} />
 
         <label htmlFor="email">Email</label>
-        <input type="email" name="email" placeholder={user.email} onChange={handleEmail} />
+        <input type="email" name="email" placeholder={email} onChange={handleEmail} />
 
         <label htmlFor="select"></label>
-        <select name="select" id="select">Field:
-            <option placeholder={user.field}>{user.field}</option>
-            <option value="Front End">Fun</option>
-            <option value="Back End">Business</option>
+        <select name="select" id="select" onChange={handleField}>Field:
+            <option placeholder={field}>{field}</option>
+            <option value="Fun">Fun</option>
+            <option value="Business">Business</option>
             </select>
 
         <button type="submit">Edit Profile</button>

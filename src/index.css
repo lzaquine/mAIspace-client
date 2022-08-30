@@ -5,9 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://w0.peakpx.com/wallpaper/731/321/HD-wallpaper-iphone-12-pro-iphone-12-pro-version.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

@@ -8,6 +8,7 @@ import Apps from "./Pages/Apps/Apps";
 import Marv from "./Pages/Apps/Marv";
 import Chat from "./Pages/Apps/Chat";
 import EditProfile from "./Pages/EditProfile/EditProfile";
+import Anon from "./components/Anon/Anon";
 import "./App.css";
 
 function App() {
@@ -15,12 +16,12 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={  <SignUp /> } />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<Anon> <SignUp /> </Anon>} />
+        <Route path="/login" element={<Anon> <LoginPage /> </Anon>} />
         <Route path="/profile" element={<Private> <Profile /> </Private>  } />
         <Route path="/app" element={<Apps />} />
-        <Route path="/app/:appName" element={<Marv />} />
-        <Route path="/app/:appName" element={<Chat />} />
+        <Route path="/app/marv" element={<Marv />} />
+        <Route path="/app/chat" element={<Chat />} />
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>
