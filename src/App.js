@@ -5,7 +5,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import Private from "./components/Private/Private";
 import Profile from "./Pages/Profile/Profile";
 import Apps from "./Pages/Apps/Apps";
-import Marv from "./Pages/Apps/Marv";
+import Marv from "./Pages/Apps/Fisherman";
 import Chat from "./Pages/Apps/Chat";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import Anon from "./components/Anon/Anon";
@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<Anon> <LoginPage /> </Anon>} />
         <Route path="/profile" element={<Private> <Profile /> </Private>  } />
         <Route path="/app" element={<Apps />} />
-        <Route path="/app/marv" element={<Marv />} />
+        <Route path="/app/fisherman" element={<Marv />} />
         <Route path="/app/chat" element={<Chat />} />
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>

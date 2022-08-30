@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 
+
 function EditProfile() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

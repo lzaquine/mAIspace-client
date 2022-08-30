@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 
 
-function Marv() {
-  
-  const [prompt] = useState(null);
+function Fisherman() {
+  const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
 
-  const getMarv = async () => {
+  const getFisherman = async () => {
     try {
       let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/Fisherman`);
       setQuestion(response.data.question);
+      setPrompt(response.data.prompt);
       setAnswer(response.data.answer);
       console.log(response.data)
     } catch (error) {
@@ -22,7 +22,7 @@ function Marv() {
   };
 
   useEffect(() => {
-    getMarv();
+    getFisherman();
   }, []);
 
   
@@ -57,7 +57,7 @@ function Marv() {
       </form>
       <h3>{question}</h3>
 
-      {answer && (<h3>{answer}</h3>)}
+      {answer && (<h3>{answer}</h3>)} {/* getting a response but have to refresh it to see */}
 
       <Link to="/">Home</Link>
     </div>
@@ -98,4 +98,4 @@ function Marv() {
   ) */
 }
 
-export default Marv
+export default Fisherman
