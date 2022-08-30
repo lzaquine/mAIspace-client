@@ -43,59 +43,37 @@ function Fisherman() {
       .catch((err) => console.log(err));
     };
 
+  
+  /* const questionCopy = [...question];
+  if (questionCopy >= 1) {
+    questionCopy.splice(1);
+    setQuestion(questionCopy);
+  } */
+
   return (
     <div>
       <h1>Fisherman</h1>
 
-      <h2>{prompt}</h2>
+      {/* <h2>{prompt}</h2> */}
+      <h2>Fisherman is a chatbot that reluctantly answers questions with sarcastic responses</h2>
       
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="question">Question:</label><br/>
-        <input type="text" name="question" value={question} onChange={handleQuestion} /><br/>
+        <input type="text" name="question" placeholder="Ask something really silly" onChange={handleQuestion} /><br/>
         <button type="submit">Submit</button>
       </form>
-      <h3>{question}</h3>
-
+      {/* <h3>{question}</h3> */}
+      <div>
+      {question && (<h3>{question}</h3>)}
+      {/* {questionCopy && (<h3>{questionCopy}</h3>)} */}
+      
       {answer && (<h3>{answer}</h3>)} {/* getting a response but have to refresh it twice to see */}
+      </div>
 
       <Link to="/">Home</Link>
     </div>
   );
-
-  /* const getMarv = async () => {
-    try {
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/Fisherman`) 
-        setMarv(response.data);
-        
-        console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getMarv();
-  } , []); */
-
-  /* return (
-    <div>
-        {marv ? (  
-          <>
-      <h1>Marv:</h1>
-            <>
-            
-            <p>{marv.appName}</p>
-            <p>{marv.appDescription}</p>
-            <p>{marv.prompt}</p>
-            
-            
-            </>
-      <Link to="/">Home</Link>
-      </>
-        ) : <p>Not Found</p> }
-    </div>
-  ) */
 }
 
 export default Fisherman

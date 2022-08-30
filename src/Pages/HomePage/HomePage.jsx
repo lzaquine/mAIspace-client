@@ -8,6 +8,20 @@ function HomePage() {
   return (
     <div>
       <h1>HOME PAGE</h1>
+      
+
+      <ul>
+        <li>T0D0 List:</li>
+        <li>fix the answers/questions & relate it to users.</li>
+        <li>Add field/profile pic to each user</li>
+        <li>Cloudinary</li>
+        <li>Fix the links/routes frontend as I wrote on my notebook</li>
+        <li>Styles</li>
+        <li>Find the dock</li>
+        <li>Logos etc</li>
+      </ul>
+
+
       {loggedIn && (
         <>
           <Link to="/profile">Profile</Link>
