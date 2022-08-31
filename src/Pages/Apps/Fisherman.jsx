@@ -3,12 +3,11 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 
-
-
 function Fisherman() {
   const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
+  const [results, setResults] = useState(null);
   const {appName} = useParams();
   const {user} = useContext(AuthContext);
 
@@ -24,13 +23,24 @@ function Fisherman() {
     }
   };
 
+  const getUser = async () => {
+    try {
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${user._id}`);
+      setResults(response.data.results)
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getFisherman();
-  }, []);
+    getUser();
+  }, [user]);
 
   
   const handleQuestion = (e) => setQuestion(e.target.value);
-
+const token = localStorage.getItem('authToken');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,20 +48,16 @@ function Fisherman() {
     const body = { prompt, question , answer };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/app/Fisherman`, body)
+      .post(`${process.env.REACT_APP_API_URL}/app/Fisherman`, body, {
+        headers: {
+          Authorization: `Bearer ${token}`
+      }})
       .then(() => {
         setQuestion(question);
         setAnswer(answer);
       })
       .catch((err) => console.log(err));
     };
-
-  
-  /* const questionCopy = [...question];
-  if (questionCopy >= 1) {
-    questionCopy.splice(1);
-    setQuestion(questionCopy);
-  } */
 
   return (
     <div>
@@ -68,14 +74,17 @@ function Fisherman() {
 
         <button type="submit">Submit</button>
       </form>
-      {/* <h3>{question}</h3> */}
       
-      {question && ((<h3>{question}</h3>)) }
-      {/* {questionCopy && (<h3>{questionCopy}</h3>)} */}
-      
-      {answer && (<h3>{answer}</h3>)} {/* getting a response but have to refresh it twice to see */}
-      
-
+      <h3>{question}</h3>
+      {results && results.map((el, index) => {
+        return (
+          <p>
+            Q: {el.question}
+            <br/>
+            {el.answer}
+          </p>
+        )
+      })}
       <Link to="/">Home</Link>
     </div>
   );
