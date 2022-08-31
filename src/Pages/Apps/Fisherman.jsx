@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../../context/auth.context';
 
 
 
@@ -8,6 +9,8 @@ function Fisherman() {
   const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
+  const {appName} = useParams();
+  const {user} = useContext(AuthContext);
 
   const getFisherman = async () => {
     try {
@@ -60,16 +63,18 @@ function Fisherman() {
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="question">Question:</label><br/>
+
         <input type="text" name="question" placeholder="Ask something really silly" onChange={handleQuestion} /><br/>
+
         <button type="submit">Submit</button>
       </form>
       {/* <h3>{question}</h3> */}
-      <div>
-      {question && (<h3>{question}</h3>)}
+      
+      {question && ((<h3>{question}</h3>)) }
       {/* {questionCopy && (<h3>{questionCopy}</h3>)} */}
       
       {answer && (<h3>{answer}</h3>)} {/* getting a response but have to refresh it twice to see */}
-      </div>
+      
 
       <Link to="/">Home</Link>
     </div>
