@@ -6,7 +6,7 @@ import Private from "./components/Private/Private";
 import Profile from "./Pages/Profile/Profile";
 import Apps from "./Pages/Apps/Apps";
 import Marv from "./Pages/Apps/Fisherman";
-import Chat from "./Pages/Apps/Chat";
+import English from "./Pages/Apps/English";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import Anon from "./components/Anon/Anon";
 import Summarizer from "./Pages/Apps/Summarizer";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/profile" element={<Private> <Profile /> </Private>  } />
         <Route path="/app" element={<Apps />} />
         <Route path="/app/fisherman" element={<Marv />} />
-        <Route path="/app/chat" element={<Chat />} />
+        <Route path="/app/english" element={<English />} />
         <Route path="/app/list" element={<List />} /> {/* OK */}
         <Route path="/app/summarizer" element={<Summarizer />} /> {/* OK */}
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
