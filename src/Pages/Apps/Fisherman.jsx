@@ -84,10 +84,10 @@ const token = localStorage.getItem('authToken');
         return (
           <p>
           <hr className="mb-2 mt-2 opacity-20"/>
-            Q: {el.question}
+            Q: <br/> {el.question}
             <br/>
             
-            {el.answer}
+            A: <br/> {el.answer}
             
             
           </p>

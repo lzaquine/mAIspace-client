@@ -25,8 +25,6 @@ function App() {
         <Route path="/app/fisherman" element={<Marv />} />
         <Route path="/app/chat" element={<Chat />} />
         <Route path="/app/summarizer" element={<Summarizer />} />
-        <Route path="/app/listz" element={<Listz />} />
-        <Route path="/app/summarizer" element={<Summarizer />} />
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>

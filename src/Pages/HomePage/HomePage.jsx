@@ -23,7 +23,7 @@ function HomePage() {
         <li>Logos etc</li>
       </ul> */}
 
-      <video controls className="w-1/2 absolute rounded-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -mt-32">
+      <video controls autoPlay className="w-1/2 absolute rounded-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -mt-32">
         <source src={video} />
       </video>
       {/* <img src={maispace} alt="logo" className='w-24 absolute rounded-lg saturate-200 glass p-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 '/> */}
