@@ -9,6 +9,7 @@ function Fisherman() {
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
   const [results, setResults] = useState(null);
+  const [app, setApp] = useState(null);
   const {user} = useContext(AuthContext);
 
   const getFisherman = async () => {
@@ -17,6 +18,7 @@ function Fisherman() {
       setQuestion(response.data.question);
       setPrompt(response.data.prompt);
       setAnswer(response.data.answer);
+      setApp(response.data._id);
       console.log(response.data)
     } catch (error) {
       console.log(error);
@@ -78,7 +80,7 @@ const token = localStorage.getItem('authToken');
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>
       {/* <h3 className='mb-4'>{question}</h3> */}
-      {results && results.map((el, index) => {
+      {results && results.filter((el) => el.app === app ).map((el, index) => {
         return (
           <p>
           <hr className="mb-2 mt-2 opacity-20"/>
