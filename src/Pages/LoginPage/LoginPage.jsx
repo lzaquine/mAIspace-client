@@ -2,6 +2,7 @@ import { useState, useContext, Component } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
+import maispace from '../../Image/maispace.png'
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -38,7 +39,8 @@ function LoginPage() {
 
   return (
     <div className="card w-96 glass z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-20">
-      <h1 className="mt-4 mb-4">Login</h1>
+      {/* <h1 className="mt-4 mb-4">Login</h1> */}
+      <img src={maispace} alt="logo" className='w-3/6 mt-4 translate-x-1/2'/>
 
       <form onSubmit={handleLoginSubmit}>
         <label htmlFor="email"></label>
@@ -63,7 +65,7 @@ function LoginPage() {
           type="submit"
           className="btn btn-wide btn-sm btn-outline rounded-full text-white text-center mt-1 mb-2"
         >
-          Login
+          Log In
         </button>
       </form>
 

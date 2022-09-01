@@ -38,7 +38,7 @@ function SignUp() {
     <div className="card w-96 saturate-200 glass absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
     
      <img src={maispace} alt="logo" className='w-3/6 mt-4 translate-x-1/2'/>
-      <h1 className="mt-4 mb-4">Sign Up</h1>
+      {/* <h1 className="mt-4 mb-4">Sign Up</h1> */}
 
       <form onSubmit={handleSubmit}>
 
@@ -56,7 +56,7 @@ function SignUp() {
       {errorMessage && <p>{errorMessage}</p>}
       <hr className="mt-3 mt-6 opacity-20"/>
       <p className='mt-4'>Already have an account?</p>
-      <Link className='mb-4' to="/login">Login</Link>
+      <Link className='mb-4' to="/login">Log In</Link>
       {/* <Link to="/">Home</Link> */}
     </div>
    

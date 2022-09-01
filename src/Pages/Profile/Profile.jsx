@@ -46,7 +46,8 @@ useEffect(() => {
     <div>
       <Link to="/" className='btn glass btn-sm rounded-lg text-white text-center mr-5'>Home Page</Link>
       <Link to="/editprofile" className="btn glass btn-sm rounded-lg text-white text-center mr-5 ">Edit Profile</Link>
-      <button className="btn glass btn-sm rounded-lg text-white text-center mr-5" onClick={logout}>Logout</button>
+      <Link className="btn glass btn-sm rounded-lg text-white text-center mr-5" to="/app">APPS</Link>
+      <button className="btn glass btn-sm rounded-lg text-white text-center mr-5" onClick={logout}>Sign Out</button>
       <button className="btn glass btn-sm rounded-lg text-white text-center " onClick={deleteProfile}>Delete Profile</button>
     <img src={robotavatarum} alt="logo" className='w-3/6 p-4 translate-x-1/2'/>
       
@@ -54,7 +55,7 @@ useEffect(() => {
       {profile && (
         <>
           {/* <img src={profileImg} alt={profile.name} /> */}
-          <p>Welcome to mAIspace, {profile.name}</p>
+          <p className='mt-10'>Welcome to mAIspace, {profile.name}</p>
         </>
       )}
       
