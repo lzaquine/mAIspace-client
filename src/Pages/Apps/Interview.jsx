@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import fisherman from '../../Image/fisherman.png';
 
-function Keypoints() {
+function Interview() {
   const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
@@ -12,9 +12,9 @@ function Keypoints() {
   const [app, setApp] = useState(null);
   const {user} = useContext(AuthContext);
 
-  const getKeypoints = async () => {
+  const getInterview = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/Keypoints`);
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/interview`);
       setQuestion(response.data.question);
       setPrompt(response.data.prompt);
       setAnswer(response.data.answer);
@@ -35,7 +35,7 @@ function Keypoints() {
   }
 
   useEffect(() => {
-    getKeypoints();
+    getInterview();
     getUser();
   }, [user]);
 
@@ -49,7 +49,7 @@ const token = localStorage.getItem('authToken');
     const body = { prompt, question , answer };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/app/Keypoints`, body, {
+      .post(`${process.env.REACT_APP_API_URL}/app/interview`, body, {
         headers: {
           Authorization: `Bearer ${token}`
       }})
@@ -65,17 +65,17 @@ const token = localStorage.getItem('authToken');
     <div>
       <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
 
-      <h1>Keypoints</h1>
+      <h1>Interview</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>5 Keypoints and Topics to study</h2>
+      <h2 className='mt-2'>Create interview questions.</h2>
       
 
       
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="question">Question:</label><br/> */}
 
-        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="5 Keypoints/Topics" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="Javascript" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
         {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>
@@ -98,4 +98,4 @@ const token = localStorage.getItem('authToken');
   );
 }
 
-export default Keypoints
+export default Interview
