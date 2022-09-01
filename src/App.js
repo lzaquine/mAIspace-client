@@ -14,6 +14,7 @@ import List from "./Pages/Apps/List";
 import Keypoints from "./Pages/Apps/Keypoints";
 import Interview from "./Pages/Apps/Interview";
 import Horrorstory from "./Pages/Apps/Horrorstory";
+import Keywords from "./Pages/Apps/Keywords";
 import "./App.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/app/Keypoints" element={<Keypoints />} /> {/* OK */}
         <Route path="/app/interview" element={<Interview />} /> {/* OK */}
         <Route path="/app/Horrorstory" element={<Horrorstory />} /> {/* OK */}
+        <Route path="/app/Keywords" element={<Keywords />} /> {/* OK */}
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>

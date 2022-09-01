@@ -37,7 +37,7 @@ function Apps() {
       </Link>
 
       <Link to="/profile">
-      <img src={settingicon} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-64 saturate-200 glass'/>
+      <img src={settingicon} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass'/>
       {/* <h2 className='ml-4 absolute mt-80 '>Settings</h2> */}
       </Link>
 
@@ -47,6 +47,9 @@ function Apps() {
 
       <Link to="/app/Horrorstory">
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass ml-4 '/>
+      </Link>
+      <Link to="/app/Keywords">
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
 
