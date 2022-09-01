@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import videoo from "../../Image/videoo.mp4";
+import videoupdate from "../../Image/videoupdate.mp4";
 
 function HomePage() {
   const { loggedIn } = useContext(AuthContext);
@@ -24,7 +24,7 @@ function HomePage() {
       </ul>
 
       <video controls autoPlay >
-        <source src={videoo} />
+        <source src={videoupdate} />
       </video>
 
 
