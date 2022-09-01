@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import fisherman from '../../Image/fisherman.png';
 
-function English() {
+function Listz() {
   const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
@@ -12,9 +12,9 @@ function English() {
   const [app, setApp] = useState(null);
   const {user} = useContext(AuthContext);
 
-  const getEnglish = async () => {
+  const getListz = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/english`);
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/listz`);
       setQuestion(response.data.question);
       setPrompt(response.data.prompt);
       setAnswer(response.data.answer);
@@ -35,7 +35,7 @@ function English() {
   }
 
   useEffect(() => {
-    getEnglish();
+    getListz();
     getUser();
   }, [user]);
 
@@ -49,7 +49,7 @@ const token = localStorage.getItem('authToken');
     const body = { prompt, question , answer };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/app/english`, body, {
+      .post(`${process.env.REACT_APP_API_URL}/app/listz`, body, {
         headers: {
           Authorization: `Bearer ${token}`
       }})
@@ -65,10 +65,10 @@ const token = localStorage.getItem('authToken');
     <div>
       <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
 
-      <h1 >english</h1>
+      <h1 >Listz</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>english converts movies to emojis</h2>
+      <h2 className='mt-2'>Listz</h2>
       
 
       
@@ -84,7 +84,7 @@ const token = localStorage.getItem('authToken');
         return (
           <p>
           <hr className="mb-2 mt-2 opacity-20"/>
-            {el.question}
+            Q: {el.question}
             <br/>
             
             {el.answer}
@@ -98,4 +98,4 @@ const token = localStorage.getItem('authToken');
   );
 }
 
-export default English
+export default Listz

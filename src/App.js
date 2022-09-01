@@ -10,6 +10,7 @@ import Chat from "./Pages/Apps/Chat";
 import EditProfile from "./Pages/EditProfile/EditProfile";
 import Anon from "./components/Anon/Anon";
 import Summarizer from "./Pages/Apps/Summarizer";
+import Listz from "./Pages/Apps/Listz";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path="/app" element={<Apps />} />
         <Route path="/app/fisherman" element={<Marv />} />
         <Route path="/app/chat" element={<Chat />} />
+        <Route path="/app/summarizer" element={<Summarizer />} />
+        <Route path="/app/listz" element={<Listz />} />
         <Route path="/app/summarizer" element={<Summarizer />} />
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>

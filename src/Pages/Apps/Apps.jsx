@@ -32,8 +32,8 @@ function Apps() {
       <img src={fisherman} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-64 saturate-200 glass'/>
       </Link>
 
-      <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
+      <Link to="/app/listz">
+      <img src={homeicon} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
       </Link>
       
       <Link to="/app/summarizer">
