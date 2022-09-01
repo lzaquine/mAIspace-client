@@ -9,7 +9,7 @@ function HomePage() {
 
   return (
     <div>
-      {/* <h1 >HOME PAGE</h1> */}
+      <h1 className="p-5"> mAIspace </h1>
       
 
       {/* <ul>

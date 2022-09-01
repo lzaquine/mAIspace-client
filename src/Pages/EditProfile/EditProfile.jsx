@@ -75,7 +75,7 @@ function EditProfile() {
 
   return (
     <div>
-      <h3 className="-translate-x-1/5 p-5" >Settings</h3>
+      {/* <h3 className="-translate-x-1/5 p-5" >Settings</h3> */}
       <img src={maispace} alt="logo" className='w-24 absolute rounded-lg mt-24 saturate-200 glass p-2 absolute left-1/2 -translate-x-1/2 -translate-y-1/2'/>
       <div className="card w-96 saturate-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
       <form onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ function EditProfile() {
         {/* <label className="label label-text translate-x-1/4 text-xl" htmlFor="name">What's your name?</label> */}
         </div>
         <div class="collapse-content"> 
-        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="text" name="name" placeholder={name} onChange={handleName} />
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center" type="text" name="name" placeholder={name} onChange={handleName} />
       </div>
         </div>
 
@@ -103,7 +103,7 @@ function EditProfile() {
        {/*  <label className="label label-text translate-x-1/4 text-xl" htmlFor="email">What's your email?</label> */}
         </div>
         <div class="collapse-content">
-        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="email" name="email" placeholder={email} onChange={handleEmail} />
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center" type="email" name="email" placeholder={email} onChange={handleEmail} />
         </div>
         </div>
         

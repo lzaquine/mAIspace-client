@@ -41,7 +41,7 @@ function Apps() {
 
 
       <Link to="/">Home</Link>
-      <section className="glass btn-wide w-full btn-sm btn-outline absolute bottom-0 text-white text-center opacity-70 h-24"><Link to="/">Teste</Link></section>
+      {/* <section className="glass btn-wide w-full btn-sm btn-outline absolute bottom-0 text-white text-center opacity-70 h-24"><Link to="/">Teste</Link></section> */}
     </div>
   
     

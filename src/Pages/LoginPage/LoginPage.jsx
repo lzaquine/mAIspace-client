@@ -45,7 +45,7 @@ function LoginPage() {
       <form onSubmit={handleLoginSubmit}>
         <label htmlFor="email"></label>
         <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center"
+          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
           type="email"
           name="email"
           placeholder="Email"
@@ -54,7 +54,7 @@ function LoginPage() {
 
         <label htmlFor="password"></label>
         <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center"
+          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
           type="password"
           name="password"
           placeholder="Password"

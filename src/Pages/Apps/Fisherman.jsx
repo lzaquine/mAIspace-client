@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
+import fisherman from '../../Image/fisherman.png';
 
 function Fisherman() {
   const [prompt, setPrompt] = useState(null);
@@ -60,17 +61,19 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <h1>Fisherman</h1>
+      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+
+      <h1 className='pt-28'>Fisherman</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2>Fisherman is a chatbot that reluctantly answers questions with sarcastic responses</h2>
+      <h2 className='mt-2'>Fisherman is a chatbot that reluctantly answers questions with sarcastic responses</h2>
       
 
       
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="question">Question:</label><br/> */}
 
-        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center opacity-95 justify-center' placeholder="Ask something really silly" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="Ask something really silly" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
         {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>
@@ -78,12 +81,13 @@ const token = localStorage.getItem('authToken');
       {results && results.map((el, index) => {
         return (
           <p>
+          <hr className="mb-2 mt-2 opacity-20"/>
             Q: {el.question}
             <br/>
             
             {el.answer}
             
-            <hr className="mb-2 mt-2 opacity-20"/>
+            
           </p>
         )
       })}

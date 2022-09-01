@@ -43,13 +43,13 @@ function SignUp() {
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="name"></label>
-        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="text" name="name" placeholder="Name" onChange={handleName} />
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center" type="text" name="name" placeholder="Name" onChange={handleName} />
 
         <label htmlFor="email"></label>
-        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="email" name="email" placeholder='Email' onChange={handleEmail} />
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center" type="email" name="email" placeholder='Email' onChange={handleEmail} />
 
         <label htmlFor="password"></label>
-        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="password" name="password" placeholder="Password" onChange={handlePassword} />
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center" type="password" name="password" placeholder="Password" onChange={handlePassword} />
         <button className="btn btn-wide btn-sm btn-outline rounded-full text-white text-center mt-1 mb-2" type="submit">Sign Up</button>
       </form>
 
