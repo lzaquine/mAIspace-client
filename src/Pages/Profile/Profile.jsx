@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/auth.context';
 import { useContext } from 'react';
+import robotavatarum from '../../Image/robotavatarum.png';
 
 function Profile() {
   const { user, logout }  = useContext(AuthContext); 
@@ -43,15 +44,21 @@ useEffect(() => {
 
   return (
     <div>
-      <h1>Profile</h1>
+      <Link to="/" className='btn glass btn-sm rounded-lg text-white text-center mr-5'>Home Page</Link>
+      <Link to="/editprofile" className="btn glass btn-sm rounded-lg text-white text-center mr-5 ">Edit Profile</Link>
+      <button className="btn glass btn-sm rounded-lg text-white text-center mr-5" onClick={logout}>Logout</button>
+      <button className="btn glass btn-sm rounded-lg text-white text-center " onClick={deleteProfile}>Delete Profile</button>
+    <img src={robotavatarum} alt="logo" className='w-3/6 p-4 translate-x-1/2'/>
+      
+      
       {profile && (
         <>
-          <p>Welcome, {profile.name}</p>
+          {/* <img src={profileImg} alt={profile.name} /> */}
+          <p>Welcome to mAIspace, {profile.name}</p>
         </>
       )}
-      <Link to="/">Home</Link>
-      <button onClick={logout}>Logout</button>
-      <button onClick={deleteProfile}>Delete Profile</button>
+      
+      
       
     </div>
   )

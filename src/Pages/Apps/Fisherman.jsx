@@ -8,7 +8,6 @@ function Fisherman() {
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
   const [results, setResults] = useState(null);
-  const {appName} = useParams();
   const {user} = useContext(AuthContext);
 
   const getFisherman = async () => {
@@ -27,7 +26,6 @@ function Fisherman() {
     try {
       let response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${user._id}`);
       setResults(response.data.results)
-
     } catch (error) {
       console.log(error);
     }
@@ -55,6 +53,7 @@ const token = localStorage.getItem('authToken');
       .then(() => {
         setQuestion(question);
         setAnswer(answer);
+        getFisherman();
       })
       .catch((err) => console.log(err));
     };
@@ -67,25 +66,28 @@ const token = localStorage.getItem('authToken');
       <h2>Fisherman is a chatbot that reluctantly answers questions with sarcastic responses</h2>
       
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="question">Question:</label><br/>
-
-        <input type="text" name="question" placeholder="Ask something really silly" onChange={handleQuestion} /><br/>
-
-        <button type="submit">Submit</button>
-      </form>
       
-      <h3>{question}</h3>
+      <form onSubmit={handleSubmit}>
+        {/* <label htmlFor="question">Question:</label><br/> */}
+
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center opacity-95 justify-center' placeholder="Ask something really silly" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
+        <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
+      </form>
+      {/* <h3 className='mb-4'>{question}</h3> */}
       {results && results.map((el, index) => {
         return (
           <p>
             Q: {el.question}
             <br/>
+            
             {el.answer}
+            
+            <hr className="mb-2 mt-2 opacity-20"/>
           </p>
         )
       })}
-      <Link to="/">Home</Link>
+      <Link className="btn btn-sm rounded-full pl-8 pr-8 text-white ml-19 mt-10 text-center " to="/app">Back to Apps</Link>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import videoo from "../../Image/videoo.mp4";
 
 function HomePage() {
   const { loggedIn } = useContext(AuthContext);
@@ -22,12 +23,16 @@ function HomePage() {
         <li>Logos etc</li>
       </ul>
 
+      <video controls autoPlay >
+        <source src={videoo} />
+      </video>
+
 
       {loggedIn && (
         <>
           <Link to="/profile">Profile</Link>
           <Link to="/app">App</Link>
-          <Link to="/editprofile">Edit Profile</Link>
+          {/* <Link to="/editprofile">Edit Profile</Link> */}
         </>
       )}
       {!loggedIn && (

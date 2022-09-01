@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
+import maispace  from "../../Image/maispace.png";
 
 
 function EditProfile() {
@@ -9,6 +10,29 @@ function EditProfile() {
   const [email, setEmail] = useState('');
   const [field, setField] = useState('');
   const { user }  = useContext(AuthContext); 
+  /* const [fileUrl, setFileUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleFileUpload = (e) => {
+    setLoading(true);
+
+    const uploadData = new FormData();
+
+    uploadData.append("fileUrl", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .then((response) => {
+        console.log(response.data.fileUrl)
+
+      setLoading(false);
+      setFileUrl(response.data.fileUrl);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log("Error while uploading the file: ", err);
+      });
+  }; */
 
 
   const navigate = useNavigate();
@@ -51,28 +75,53 @@ function EditProfile() {
 
   return (
     <div>
-      <h3>Edit Profile</h3>
-
+      <h3 className="-translate-x-1/5 p-5" >Settings</h3>
+      <img src={maispace} alt="logo" className='w-24 absolute rounded-lg mt-24 saturate-200 glass p-2 absolute left-1/2 -translate-x-1/2 -translate-y-1/2'/>
+      <div className="card w-96 saturate-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
       <form onSubmit={handleSubmit}>
 
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" placeholder={name} onChange={handleName} />
+      {/* <label htmlFor="fileUrl">Picture</label>
+        <input
+          type="file"
+          name="fileUrl"
+          onChange={handleFileUpload} /> */}
+        <div class="collapse mt-10">
+        <input className="translate-x-1/3 mt-3" type="checkbox"/> 
+        <div class="collapse-title text-xl font-medium">What's your name?
+        {/* <label className="label label-text translate-x-1/4 text-xl" htmlFor="name">What's your name?</label> */}
+        </div>
+        <div class="collapse-content"> 
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="text" name="name" placeholder={name} onChange={handleName} />
+      </div>
+        </div>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" placeholder={email} onChange={handleEmail} />
+          <hr className="mt-2 mb-2 opacity-30"/>
 
-        <label htmlFor="select"></label>
+        <div class="collapse">
+        <input className="translate-x-1/3 mt-3" type="checkbox"/>
+        <div class="collapse-title text-xl font-medium">What's your email?
+       {/*  <label className="label label-text translate-x-1/4 text-xl" htmlFor="email">What's your email?</label> */}
+        </div>
+        <div class="collapse-content">
+        <input className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center opacity-95 justify-center" type="email" name="email" placeholder={email} onChange={handleEmail} />
+        </div>
+        </div>
+        
+        
+        {/* <label htmlFor="select"></label>
         <select name="select" id="select" onChange={handleField}>Field:
             <option placeholder={field}>{field}</option>
             <option value="Fun">Fun</option>
             <option value="Business">Business</option>
-            </select>
+            </select> */}
 
-        <button type="submit">Edit Profile</button>
+        <button className="btn glass w-full btn-sm rounded-full text-white text-center mt-12 mb-2" type="submit">Edit PROFILE</button>
       </form>
-      <>
-        <Link to="/profile">Back to Profile</Link>
-      </>
+      
+        
+        <Link to="/profile" className='btn glass btn-sm rounded-full text-white ml-19 text-center '><b>BACK TO PROFILE</b></Link>
+      
+      </div>
 
     </div>
   );

@@ -35,9 +35,9 @@ function SignUp() {
 
   return (
     
-    <div className="card w-96 glass absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
+    <div className="card w-96 saturate-200 glass absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
     
-    <img src={maispace} alt="logo" className='w-3/6 mt-4 translate-x-1/2'/>
+     <img src={maispace} alt="logo" className='w-3/6 mt-4 translate-x-1/2'/>
       <h1 className="mt-4 mb-4">Sign Up</h1>
 
       <form onSubmit={handleSubmit}>
