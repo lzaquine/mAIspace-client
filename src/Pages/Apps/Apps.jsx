@@ -28,7 +28,7 @@ function Apps() {
       <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
 
-      <Link to="/app/chat">
+      <Link to="/app/Keypoints">
       <img src={fisherman} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-64 saturate-200 glass'/>
       </Link>
 
