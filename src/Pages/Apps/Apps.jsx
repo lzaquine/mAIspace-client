@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import fisherman from '../../Image/fisherman.png';
 import maispace from '../../Image/maispace.png';
-
+import settingicon from '../../Image/settingicon.png';
+import homeicon from '../../Image/homeicon.png';
 
 function Apps() {
   return (
@@ -19,10 +20,10 @@ function Apps() {
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass'/> {/* ml-56 */}
       </Link>
 
-      <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
+      <Link to="/">
+      <img src={homeicon} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
-
+      {/*}
       <Link to="/app/chat">
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
@@ -33,12 +34,21 @@ function Apps() {
 
       <Link to="/app/chat">
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
-      </Link>
+      </Link> */}
       
       <Link to="/app/summarizer">
       <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
       </Link>
+
+      <Link to="/profile">
+      <img src={settingicon} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-64 saturate-200 glass'/>
+      {/* <h2 className='ml-4 absolute mt-80 '>Settings</h2> */}
+      </Link>
+
+
+
       </div>
+
 
 
       <Link to="/">Home</Link>
