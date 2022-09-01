@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import fisherman from '../../Image/fisherman.png';
 
-function Movie2Emoji() {
+function English() {
   const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
@@ -12,9 +12,9 @@ function Movie2Emoji() {
   const [app, setApp] = useState(null);
   const {user} = useContext(AuthContext);
 
-  const getMovie2Emoji = async () => {
+  const getEnglish = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/Movie2Emoji`);
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/english`);
       setQuestion(response.data.question);
       setPrompt(response.data.prompt);
       setAnswer(response.data.answer);
@@ -35,7 +35,7 @@ function Movie2Emoji() {
   }
 
   useEffect(() => {
-    getMovie2Emoji();
+    getEnglish();
     getUser();
   }, [user]);
 
@@ -49,7 +49,7 @@ const token = localStorage.getItem('authToken');
     const body = { prompt, question , answer };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/app/Movie2Emoji`, body, {
+      .post(`${process.env.REACT_APP_API_URL}/app/english`, body, {
         headers: {
           Authorization: `Bearer ${token}`
       }})
@@ -65,10 +65,10 @@ const token = localStorage.getItem('authToken');
     <div>
       <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
 
-      <h1 >Movie2Emoji</h1>
+      <h1 >english</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>Movie2Emoji converts movies to emojis</h2>
+      <h2 className='mt-2'>english converts movies to emojis</h2>
       
 
       
@@ -98,4 +98,4 @@ const token = localStorage.getItem('authToken');
   );
 }
 
-export default Movie2Emoji
+export default English
