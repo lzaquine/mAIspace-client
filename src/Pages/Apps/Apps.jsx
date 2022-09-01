@@ -16,8 +16,8 @@ function Apps() {
       </Link>
       
 
-      <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass'/> {/* ml-56 */}
+      <Link to="/app/list">
+      <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass'/> {/* ml-56 */}
       </Link>
 
       <Link to="/">
