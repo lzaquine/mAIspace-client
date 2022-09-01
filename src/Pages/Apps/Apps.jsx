@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import fisherman from '../../Image/fisherman.png';
+import maispace from '../../Image/maispace.png';
 
 
 function Apps() {
@@ -32,7 +33,13 @@ function Apps() {
       <Link to="/app/chat">
       <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-64 saturate-200 glass '/>
       </Link>
+      
+      <Link to="/app/summarizer">
+      <img src={maispace} alt="logo" className='card w-24 absolute rounded-lg mt-64 saturate-200 glass '/>
+      </Link>
       </div>
+
+
       <Link to="/">Home</Link>
       <section className="glass btn-wide w-full btn-sm btn-outline absolute bottom-0 text-white text-center opacity-70 h-24"><Link to="/">Teste</Link></section>
     </div>
