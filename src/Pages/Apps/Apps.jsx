@@ -23,9 +23,9 @@ function Apps() {
       <Link to="/">
       <img src={homeicon} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
-      {/*}
+     
       <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
+      <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
 
       <Link to="/app/chat">
@@ -34,7 +34,7 @@ function Apps() {
 
       <Link to="/app/chat">
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
-      </Link> */}
+      </Link>
       
       <Link to="/app/summarizer">
       <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>

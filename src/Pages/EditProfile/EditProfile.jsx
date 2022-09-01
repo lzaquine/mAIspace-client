@@ -10,30 +10,6 @@ function EditProfile() {
   const [email, setEmail] = useState('');
   const [field, setField] = useState('');
   const { user }  = useContext(AuthContext); 
-  /* const [fileUrl, setFileUrl] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleFileUpload = (e) => {
-    setLoading(true);
-
-    const uploadData = new FormData();
-
-    uploadData.append("fileUrl", e.target.files[0]);
-
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
-      .then((response) => {
-        console.log(response.data.fileUrl)
-
-      setLoading(false);
-      setFileUrl(response.data.fileUrl);
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log("Error while uploading the file: ", err);
-      });
-  }; */
-
 
   const navigate = useNavigate();
 
@@ -75,16 +51,12 @@ function EditProfile() {
 
   return (
     <div>
-      {/* <h3 className="-translate-x-1/5 p-5" >Settings</h3> */}
+     
       <img src={maispace} alt="logo" className='w-24 absolute rounded-lg mt-24 saturate-200 glass p-2 absolute left-1/2 -translate-x-1/2 -translate-y-1/2'/>
       <div className="card w-96 saturate-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
       <form onSubmit={handleSubmit}>
 
-      {/* <label htmlFor="fileUrl">Picture</label>
-        <input
-          type="file"
-          name="fileUrl"
-          onChange={handleFileUpload} /> */}
+      
         <div class="collapse mt-10">
         <input className="translate-x-1/3 mt-3" type="checkbox"/> 
         <div class="collapse-title text-xl font-medium">What's your name?
