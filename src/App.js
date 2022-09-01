@@ -13,6 +13,7 @@ import Summarizer from "./Pages/Apps/Summarizer";
 import List from "./Pages/Apps/List";
 import Keypoints from "./Pages/Apps/Keypoints";
 import Interview from "./Pages/Apps/Interview";
+import Horrorstory from "./Pages/Apps/Horrorstory";
 import "./App.css";
 
 function App() {
@@ -25,11 +26,12 @@ function App() {
         <Route path="/profile" element={<Private> <Profile /> </Private>  } />
         <Route path="/app" element={<Apps />} />
         <Route path="/app/fisherman" element={<Marv />} />
-        <Route path="/app/english" element={<English />} />
+        <Route path="/app/english" element={<English />} /> {/* OK */}
         <Route path="/app/list" element={<List />} /> {/* OK */}
         <Route path="/app/summarizer" element={<Summarizer />} /> {/* OK */}
         <Route path="/app/Keypoints" element={<Keypoints />} /> {/* OK */}
         <Route path="/app/interview" element={<Interview />} /> {/* OK */}
+        <Route path="/app/Horrorstory" element={<Horrorstory />} /> {/* OK */}
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>

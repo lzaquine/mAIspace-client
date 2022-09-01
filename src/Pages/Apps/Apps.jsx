@@ -45,6 +45,10 @@ function Apps() {
       <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
       </Link>
 
+      <Link to="/app/Horrorstory">
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass ml-4 '/>
+      </Link>
+
 
 
       </div>
