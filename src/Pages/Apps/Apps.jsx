@@ -10,9 +10,12 @@ function Apps() {
       <h1>Apps</h1>
       <div className=" grid grid-rows-4 grid-cols-4">
 
-      <Link to="/app/fisherman">
+      {/* <Link to="/app/fisherman">
       <img src={fisherman} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-20 saturate-200 glass'/>
       <h2 className='ml-4 w-20 absolute mt-40'>Fisherman</h2>
+      </Link> */}
+      <Link to="/app/Marvbot">
+      <img src={fisherman} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
       
 
@@ -56,16 +59,14 @@ function Apps() {
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
-      <Link to="/app/Marvbot">
-      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
-      </Link>
+      
 
 
       </div>
 
 
 
-      <Link to="/">Home</Link>
+      {/* <Link to="/">Home</Link> */}
       {/* <section className="glass btn-wide w-full btn-sm btn-outline absolute bottom-0 text-white text-center opacity-70 h-24"><Link to="/">Teste</Link></section> */}
     </div>
   

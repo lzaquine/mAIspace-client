@@ -49,13 +49,15 @@ useEffect(() => {
       <Link to="/editprofile" className="btn btn-sm rounded-lg text-white text-center mr-5 ">Edit Profile</Link>
       <button className="btn  btn-sm rounded-lg text-white text-center mr-5 " onClick={deleteProfile}>Delete Profile</button>
       <button className="btn  btn-sm rounded-lg text-white text-center mr-5" onClick={logout}>Sign Out</button>
-    <img src={robotavatarum} alt="logo" className='w-1/5 p-1 translate-x-1/1'/>
+    <img src={robotavatarum} alt="logo" className='w-1/2 p-1 translate-x-1/2 mb-5'/>
       
       
       {profile && (
         <>
           {/* <img src={profileImg} alt={profile.name} /> */}
-          <p className="-mt-24">Welcome to mAIspace, {profile.name}</p>
+          <h1 className="-mt-42">Welcome to mAIspace, {profile.name}</h1>
+          <p> There's nothing really for you to see here. All your apps are somewhere else. Look for Marv and he'll help you by answering your questions. Good luck </p>
+          
         </>
       )}
       
