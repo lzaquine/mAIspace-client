@@ -56,7 +56,7 @@ const token = localStorage.getItem('authToken');
       .then(() => {
         setQuestion(question);
         setAnswer(answer);
-        getFisherman();
+        getUser();
       })
       .catch((err) => console.log(err));
     };
