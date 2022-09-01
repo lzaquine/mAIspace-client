@@ -7,35 +7,36 @@ function Apps() {
   return (
     <div>
       <h1>Apps</h1>
-      <div className="ml-14 grid grid-rows-4 grid-cols-4">
+      <div className=" grid grid-rows-4 grid-cols-4">
 
       <Link to="/app/fisherman">
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-20 saturate-200 glass'/>
+      <img src={fisherman} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-20 saturate-200 glass'/>
+      <h2 className='ml-4 w-20 absolute mt-40'>Fisherman</h2>
       </Link>
       
 
       <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-20 saturate-200 glass'/> {/* ml-56 */}
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass'/> {/* ml-56 */}
       </Link>
 
       <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-20 saturate-200 glass '/>
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
 
       <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-20 saturate-200 glass '/>
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-20 saturate-200 glass '/>
       </Link>
 
       <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-64 saturate-200 glass'/>
+      <img src={fisherman} alt="logo" className='ml-4 card w-20 absolute rounded-lg mt-64 saturate-200 glass'/>
       </Link>
 
       <Link to="/app/chat">
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg mt-64 saturate-200 glass '/>
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
       </Link>
       
       <Link to="/app/summarizer">
-      <img src={maispace} alt="logo" className='card w-24 absolute rounded-lg mt-64 saturate-200 glass '/>
+      <img src={maispace} alt="logo" className='card w-20 absolute rounded-lg mt-64 saturate-200 glass '/>
       </Link>
       </div>
 
