@@ -52,6 +52,10 @@ function Apps() {
       <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
+      <Link to="/app/codequestion">
+      <img src={fisherman} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
+      </Link>
+
 
 
       </div>
