@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-import videoupdate from "../../Image/videoupdate.mp4";
+import video from "../../Image/video.MP4";
 
 function HomePage() {
   const { loggedIn } = useContext(AuthContext);
@@ -11,7 +11,7 @@ function HomePage() {
       <h1 >HOME PAGE</h1>
       
 
-      <ul>
+      {/* <ul>
         <li>T0D0 List:</li>
         <li>fix the answers/questions & relate it to users (refresh problem).</li>
         <li>Add field/profile pic to each user</li>
@@ -21,10 +21,10 @@ function HomePage() {
         <li>Styles</li>
         <li>Find the dock</li>
         <li>Logos etc</li>
-      </ul>
+      </ul> */}
 
-      <video controls autoPlay >
-        <source src={videoupdate} />
+      <video className="w-1/2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" controls autoPlay >
+        <source src={video} />
       </video>
 
 
