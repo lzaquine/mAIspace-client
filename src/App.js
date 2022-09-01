@@ -24,8 +24,8 @@ function App() {
         <Route path="/app" element={<Apps />} />
         <Route path="/app/fisherman" element={<Marv />} />
         <Route path="/app/chat" element={<Chat />} />
-        <Route path="/app/list" element={<List />} />
-        <Route path="/app/summarizer" element={<Summarizer />} />
+        <Route path="/app/list" element={<List />} /> {/* OK */}
+        <Route path="/app/summarizer" element={<Summarizer />} /> {/* OK */}
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>

@@ -65,17 +65,17 @@ const token = localStorage.getItem('authToken');
     <div>
       <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
 
-      <h1 >List 10 things</h1>
+      <h1>List 10 books</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>List 10 things</h2>
+      <h2 className='mt-2'>This makes a list of books and stops when it reaches #10.</h2>
       
 
       
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="question">Question:</label><br/> */}
 
-        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="Ask something really silly" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="List 10 ... books" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
         {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>

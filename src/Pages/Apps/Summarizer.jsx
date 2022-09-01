@@ -72,7 +72,7 @@ const token = localStorage.getItem('authToken');
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="question">Question:</label><br/> */}
 
-        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center opacity-95 justify-center' placeholder="Ask something really silly" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center opacity-95 justify-center' placeholder="Insert a text" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
         {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>
@@ -83,7 +83,7 @@ const token = localStorage.getItem('authToken');
             Q: {el.question}
             <br/>
             
-            {el.answer}
+            A: {el.answer}
             
             <hr className="mb-2 mt-2 opacity-20"/>
           </p>
