@@ -63,9 +63,9 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <img src={fisherman} alt="logo" className='card w-24 absolute rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+      <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
 
-      <h1 className='pt-28'>Fisherman</h1>
+      <h1 >Fisherman</h1>
 
       {/* <h2>{prompt}</h2> */}
       <h2 className='mt-2'>Fisherman is a chatbot that reluctantly answers questions with sarcastic responses</h2>
