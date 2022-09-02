@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/auth.context';
 import screamnobg from '../../Image/screamnobg.png';
 import andrenobg from '../../Image/andrenobg.png';
 
-function Andree() {
+function AndreBot() {
   const [prompt, setPrompt] = useState(null);
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
@@ -99,4 +99,4 @@ const token = localStorage.getItem('authToken');
   );
 }
 
-export default Andree
+export default AndreBot
