@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../context/auth.context';
 import { useContext } from 'react';
-import robotavatarum from '../../Image/robotavatarum.png';
+import profilevideo from '../../Image/profilevideo.mp4';
 
 function Profile() {
   const { user, logout }  = useContext(AuthContext); 
@@ -46,18 +46,19 @@ useEffect(() => {
     <div>
       {profile && (
         <>
-          {/* <img src={profileImg} alt={profile.name} /> */}
-          <img src={robotavatarum} alt="logo" className='w-1/5 p-1  mb-5'/>
-          <h1 className="-mt-42">Welcome to your mAIspace profile, {profile.name}</h1>
-          <p> There's nothing really for you to see here. All your apps are somewhere else. Look for Marv and he'll help you by answering your questions. Good luck </p>
+          
+          <h1 className="mt-5">Hi, {profile.name}!</h1>
+          <video controls autoPlay className="w-1/2 absolute rounded-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <source src={profilevideo} />
+          </video>
           
         </>
       )}
-      <Link to="/" className='btn w-full btn-sm rounded-lg pt-1 pb-1 text-white text-center mt-12'>Home Page</Link>
-      <Link className="btn w-full btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4" to="/app">APPLICATIONS</Link>
-      <Link to="/editprofile" className="btn w-full btn-sm rounded-lg pt-1 pb-1 text-white text-center mt-4">Edit Profile</Link>
-      <button className="btn w-full btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4" onClick={logout}>Sign Out</button>
-      <button className="btn w-full btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4 mb-8" onClick={deleteProfile}>Delete Profile</button>
+      <Link to="/" className='btn ml-8 btn-sm rounded-lg pt-1 pb-1 text-white text-center mt-12'>Home Page</Link>
+      <Link className="btn ml-8 btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4" to="/app">APPLICATIONS</Link>
+      <Link to="/editprofile" className="btn ml-8 btn-sm rounded-lg pt-1 pb-1 text-white text-center mt-4">Edit Profile</Link>
+      <button className="btn ml-8 btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4" onClick={logout}>Sign Out</button>
+      <button className="btn ml-8 btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4 mb-8" onClick={deleteProfile}>Delete Profile</button>
       
       
       
