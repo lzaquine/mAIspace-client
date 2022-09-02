@@ -17,6 +17,7 @@ import Horrorstory from "./Pages/Apps/Horrorstory";
 import Keywords from "./Pages/Apps/Keywords";
 import Codequestion from "./Pages/Apps/Codequestion";
 import Marv from "./Pages/Apps/Marv";
+import Andree from "./Pages/Apps/Andree";
 import "./App.css";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/app/Keywords" element={<Keywords />} /> {/* OK */}
         <Route path="/app/codequestion" element={<Codequestion />} /> {/* OK */}
         <Route path="/app/Marvbot" element={<Marv />} /> {/* OK */}
+        <Route path="/app/Andree" element={<Andree />} /> {/* OK */}
         <Route path="/editprofile" element={<Private> <EditProfile /> </Private>} />
       </Routes>
     </div>

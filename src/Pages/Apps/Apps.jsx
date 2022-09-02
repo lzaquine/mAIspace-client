@@ -11,6 +11,7 @@ import suma from '../../Image/suma.png';
 import homenobg from '../../Image/homenobg.png';
 import nobginterview from '../../Image/nobginterview.png';
 import booknobg from '../../Image/booknobg.png';
+import andrenobg from '../../Image/andrenobg.png';
 
 
 
@@ -67,6 +68,10 @@ function Apps() {
 
       <Link to="/">
       <img src={homenobg} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
+      </Link>
+
+      <Link to="/app/Andree">
+      <img src={andrenobg} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
       
