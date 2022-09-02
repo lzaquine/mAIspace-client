@@ -91,7 +91,7 @@ function EditProfile() {
       </form>
       
         
-        <Link to="/profile" className='btn glass btn-sm rounded-full text-white ml-19 text-center '><b>BACK TO PROFILE</b></Link>
+        <Link to="/profile" className='btn  btn-sm rounded-full text-white ml-19 text-center '><b>BACK TO PROFILE</b></Link>
       
       </div>
 
