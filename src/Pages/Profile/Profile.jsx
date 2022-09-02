@@ -47,8 +47,8 @@ useEffect(() => {
       {profile && (
         <>
           {/* <img src={profileImg} alt={profile.name} /> */}
-          <img src={robotavatarum} alt="logo" className='w-1/2 p-1 translate-x-1/2 mb-5'/>
-          <h1 className="-mt-42">Welcome to your profile on mAIspace, {profile.name}</h1>
+          <img src={robotavatarum} alt="logo" className='w-1/5 p-1  mb-5'/>
+          <h1 className="-mt-42">Welcome to your mAIspace profile, {profile.name}</h1>
           <p> There's nothing really for you to see here. All your apps are somewhere else. Look for Marv and he'll help you by answering your questions. Good luck </p>
           
         </>

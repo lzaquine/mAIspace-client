@@ -4,14 +4,14 @@ import english from '../../Image/english.jpeg';
 import robot from '../../Image/robot.jpeg';
 import keyword from '../../Image/keyword.jpeg';
 import screamnobg from '../../Image/screamnobg.png';
-import booksicon from '../../Image/booksicon.jpeg';
+/* import booksicon from '../../Image/booksicon.jpeg'; */
 import js from '../../Image/js.jpeg';
 import keys from '../../Image/keys.jpeg';
 import suma from '../../Image/suma.png';
 import homenobg from '../../Image/homenobg.png';
 import nobginterview from '../../Image/nobginterview.png';
 import booknobg from '../../Image/booknobg.png';
-import andrenobg from '../../Image/andrenobg.png';
+/* import andrenobg from '../../Image/andrenobg.png'; */
 
 
 
@@ -70,9 +70,9 @@ function Apps() {
       <img src={homenobg} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
-      <Link to="/app/AndreBot">
+      {/* <Link to="/app/AndreBot">
       <img src={andrenobg} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
-      </Link>
+      </Link> */}
 
       
 
