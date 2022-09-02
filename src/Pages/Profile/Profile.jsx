@@ -53,11 +53,11 @@ useEffect(() => {
           
         </>
       )}
-      <Link to="/" className='btn w-full btn-sm rounded-full text-white text-center mt-12'>Home Page</Link>
-      <Link className="btn w-full btn-sm rounded-full text-white text-center mt-4" to="/app">APPLICATIONS</Link>
-      <Link to="/editprofile" className="btn w-full btn-sm rounded-full text-white text-center mt-4">Edit Profile</Link>
-      <button className="btn w-full btn-sm rounded-full text-white text-center mt-4" onClick={logout}>Sign Out</button>
-      <button className="btn w-full btn-sm rounded-full text-white text-center mt-4 mb-8" onClick={deleteProfile}>Delete Profile</button>
+      <Link to="/" className='btn w-full btn-sm rounded-lg pt-1 pb-1 text-white text-center mt-12'>Home Page</Link>
+      <Link className="btn w-full btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4" to="/app">APPLICATIONS</Link>
+      <Link to="/editprofile" className="btn w-full btn-sm rounded-lg pt-1 pb-1 text-white text-center mt-4">Edit Profile</Link>
+      <button className="btn w-full btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4" onClick={logout}>Sign Out</button>
+      <button className="btn w-full btn-sm rounded-lg text-white pt-1 pb-1 text-center mt-4 mb-8" onClick={deleteProfile}>Delete Profile</button>
       
       
       
