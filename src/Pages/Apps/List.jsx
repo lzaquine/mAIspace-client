@@ -68,7 +68,7 @@ const token = localStorage.getItem('authToken');
       <h1>List 10 books</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>This app makes a list of books and stops when it reaches #10.</h2>
+      <h2 className='mt-2'>This app makes a list of books.</h2>
       
 
       

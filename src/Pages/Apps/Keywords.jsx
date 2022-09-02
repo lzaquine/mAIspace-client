@@ -69,7 +69,7 @@ const token = localStorage.getItem('authToken');
       <h1>Keywords</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>Extract keywords from a block of text. At a lower temperature it picks keywords from the text.</h2>
+      <h2 className='mt-2'>Extract keywords from a block of text.</h2>
       
 
       
