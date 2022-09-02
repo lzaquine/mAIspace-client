@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import fisherman from '../../Image/fisherman.png';
+import keyword from '../../Image/keyword.jpeg'
 
 function Keywords() {
   const [prompt, setPrompt] = useState(null);
@@ -63,9 +64,9 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+      <img src={keyword} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-7 mb-3 saturate-200 glass justify-center'/>
 
-      <h1 >Keywords</h1>
+      <h1>Keywords</h1>
 
       {/* <h2>{prompt}</h2> */}
       <h2 className='mt-2'>Extract keywords from a block of text. At a lower temperature it picks keywords from the text.</h2>

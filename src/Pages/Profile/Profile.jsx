@@ -44,22 +44,22 @@ useEffect(() => {
 
   return (
     <div>
-      <Link to="/" className='btn  btn-sm rounded-lg text-white text-center mr-5'>Home Page</Link>
-      <Link className="btn  btn-sm rounded-lg text-white text-center mr-5" to="/app">APPLICATIONS</Link>
-      <Link to="/editprofile" className="btn btn-sm rounded-lg text-white text-center mr-5 ">Edit Profile</Link>
-      <button className="btn  btn-sm rounded-lg text-white text-center mr-5 " onClick={deleteProfile}>Delete Profile</button>
-      <button className="btn  btn-sm rounded-lg text-white text-center mr-5" onClick={logout}>Sign Out</button>
-    <img src={robotavatarum} alt="logo" className='w-1/2 p-1 translate-x-1/2 mb-5'/>
-      
-      
       {profile && (
         <>
           {/* <img src={profileImg} alt={profile.name} /> */}
-          <h1 className="-mt-42">Welcome to mAIspace, {profile.name}</h1>
+          <img src={robotavatarum} alt="logo" className='w-1/2 p-1 translate-x-1/2 mb-5'/>
+          <h1 className="-mt-42">Welcome to your profile on mAIspace, {profile.name}</h1>
           <p> There's nothing really for you to see here. All your apps are somewhere else. Look for Marv and he'll help you by answering your questions. Good luck </p>
           
         </>
       )}
+      <Link to="/" className='btn w-full btn-sm rounded-full text-white text-center mt-12'>Home Page</Link>
+      <Link className="btn w-full btn-sm rounded-full text-white text-center mt-4" to="/app">APPLICATIONS</Link>
+      <Link to="/editprofile" className="btn w-full btn-sm rounded-full text-white text-center mt-4">Edit Profile</Link>
+      <button className="btn w-full btn-sm rounded-full text-white text-center mt-4" onClick={logout}>Sign Out</button>
+      <button className="btn w-full btn-sm rounded-full text-white text-center mt-4 mb-8" onClick={deleteProfile}>Delete Profile</button>
+      
+      
       
       
       

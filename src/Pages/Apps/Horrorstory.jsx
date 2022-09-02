@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
-import fisherman from '../../Image/fisherman.png';
+import screamnobg from '../../Image/screamnobg.png';
 
 function Horrorstory() {
   const [prompt, setPrompt] = useState(null);
@@ -63,7 +63,7 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+      <img src={screamnobg} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-7 mb-3 saturate-200 glass justify-center'/>
 
       <h1 >Horror Story</h1>
 
@@ -75,7 +75,7 @@ const token = localStorage.getItem('authToken');
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="question">Question:</label><br/> */}
 
-        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="A word" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="Word" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
         {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>

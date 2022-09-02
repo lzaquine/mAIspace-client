@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import fisherman from '../../Image/fisherman.png';
+import robot from '../../Image/robot.jpeg';
 
 function Marvbot() {
   const [prompt, setPrompt] = useState(null);
@@ -63,7 +64,7 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+      <img src={robot} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-7 mb-5  saturate-200 glass justify-center'/>
 
       <h1>Marv</h1>
 

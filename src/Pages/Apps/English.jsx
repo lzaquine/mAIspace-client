@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import fisherman from '../../Image/fisherman.png';
+import english from '../../Image/english.jpeg';
 
 function English() {
   const [prompt, setPrompt] = useState(null);
@@ -63,19 +64,19 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+      <img src={english} alt="logo" className='card w-24 rounded-lg left-1/2 transform mt-7 mb-5 -translate-x-1/2 saturate-200 glass justify-center'/>
 
-      <h1 >english</h1>
+      <h1>Grammar correction</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>english converts movies to emojis</h2>
+      <h2 className='mt-2'>Corrects sentences into standard English.</h2>
       
 
       
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="question">Question:</label><br/> */}
 
-        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="Ask something really silly" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
+        <input type="text" name="question" className='input input-bordered w-full rounded-lg max-w-xs mt-1 mb-3 mt-8 text-center text-neutral-400 opacity-95 justify-center' placeholder="Me no good, me always hungry" onChange={(e) => setQuestion(e.target.value)} value={question} /><br/>
         {/* <textarea name="question" placeholder="question" onChange={handleQuestion}></textarea><br/> */}
         <button className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8" type="submit">Submit</button>
       </form>

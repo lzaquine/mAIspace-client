@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
-import fisherman from '../../Image/fisherman.png';
+import booknobg from '../../Image/booknobg.png';
 
 function List() {
   const [prompt, setPrompt] = useState(null);
@@ -63,12 +63,12 @@ const token = localStorage.getItem('authToken');
 
   return (
     <div>
-      <img src={fisherman} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 glass justify-center'/>
+      <img src={booknobg} alt="logo" className='card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 mt-5 mb-5 saturate-200 glass justify-center'/>
 
       <h1>List 10 books</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>This makes a list of books and stops when it reaches #10.</h2>
+      <h2 className='mt-2'>This app makes a list of books and stops when it reaches #10.</h2>
       
 
       
