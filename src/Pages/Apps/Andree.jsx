@@ -69,7 +69,7 @@ const token = localStorage.getItem('authToken');
       <h1 >Andre</h1>
 
       {/* <h2>{prompt}</h2> */}
-      <h2 className='mt-2'>Andre is a chatbot that answers questions with rude responses.</h2>
+      <h2 className='mt-2'>Andre is a chatbot that answers questions with rude and sarcastic responses.</h2>
       
 
       

@@ -70,7 +70,7 @@ function Apps() {
       <img src={homenobg} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
-      <Link to="/app/Andree">
+      <Link to="/app/AndreBot">
       <img src={andrenobg} alt="logo" className='card w-20 absolute rounded-lg mt-96 saturate-200 glass '/>
       </Link>
 
