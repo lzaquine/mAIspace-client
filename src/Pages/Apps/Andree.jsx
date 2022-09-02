@@ -15,7 +15,7 @@ function Andree() {
 
   const getAndree = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/Andree`);
+      let response = await axios.get(`${process.env.REACT_APP_API_URL}/app/AndreBot`);
       setQuestion(response.data.question);
       setPrompt(response.data.prompt);
       setAnswer(response.data.answer);
@@ -50,7 +50,7 @@ const token = localStorage.getItem('authToken');
     const body = { prompt, question , answer };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/app/Andree`, body, {
+      .post(`${process.env.REACT_APP_API_URL}/app/AndreBot`, body, {
         headers: {
           Authorization: `Bearer ${token}`
       }})
