@@ -1,70 +1,174 @@
-# Getting Started with Create React App
+<p align="center" dir="auto">
+<a rel="noopener noreferrer" href="https://maispace.netlify.com" target="_blank">
+<img src="src/Image/maispace.png" width="150px"></a></p>
+<h2 align="center" dir="auto">mAIspace is a single-page app for users to interact with AI. 9 different apps were created with AI about various subjects and with different returns each time.<br>👨‍💻 🤖 🦾 🧙‍♂️</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
+<br>
 
-## Available Scripts
+## User Stories
 
-In the project directory, you can run:
+- **Sign up** - As a user, I want to sign up.
+- **Login** - As a user, I want to be able to log in.
+- **Logout** - As a user, I want to be able to log out.
+- **Profile** - As a user, I want to be able to see my profile.
+- **Edit Profile** - As a user, I want to be able to edit my profile.
+- **Delete Profile** - As a user, I want to be able to delete my account.
+- **Home** - As a user, I want to access the home page.
+- **App:** As a user, I want to access all the apps page.
+- **App Name:** As a user, I want to access the app's page.
 
-### `npm start`
+<br>
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Client / Frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## React Router Routes (React App)
 
-### `npm test`
+| Path               | Page       | Permissions                | Behavior                                          |
+| ------------------ | --------------- | -------------------------- | ------------------------------------------------- |
+| `/login`           | LoginPage       | anon only `<AnonRoute>`    | Login form, navigates to home page after login.   |
+| `/signup`          | SignupPage      | anon only `<AnonRoute>`    | Signup form, navigates to home page after signup. |
+| `/`                | HomePage        | public `<Route>`           | Home page.                                        |
+| `/profile`         | Profile     | user only `<PrivateRoute>` | User and player profile for the current user.     |
+| `/profile/edit`    | EditProfile | user only `<PrivateRoute>` | Edit user profile form.                           |
+| `/apps`          | Apps             | user only `<PrivateRoute>` | Apps form.                                         |
+| `/:apps/:appName` | App Name  | user only `<PrivateRoute>` | App cards.                                 |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pages:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- LoginPage
 
-### `npm run eject`
+- SignupPage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- HomePage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ProfilePage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- EditProfilePage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Apps
 
-## Learn More
+- App/appName
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+# Server / Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Models:
 
-### Analyzing the Bundle Size
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**User model**
 
-### Making a Progressive Web App
+```javascript
+{
+  name: { 
+    type: String, 
+    required: true
+    }
+  email: { 
+    type: String, 
+    required: true, 
+    unique: true 
+    },
+  password: { 
+    type: String, 
+    required: true 
+    },
+  profileImg: {
+      type: String,
+      default: 'https://res.cloudinary.com/dvzekm9zq/image/upload/v1660147231/cards/avatar_bpem8o.png'
+    },
+  field: { 
+    type: String, 
+    required: true,
+    enum: ['Fun', 'Business', 'Programmer', 'Teacher']},
+    createdResults: [{ type: Schema.Types.ObjectId, ref:'Requests' }]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+}
+```
 
-### Advanced Configuration
+**App model**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```javascript
+ {
+   appDescription: { type: String },
+   appName: { type: String }
+ }
+```
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Result model**
 
-### `npm run build` fails to minify
+```javascript
+  {
+    appName: { type: String },
+    userInput: { type: String },
+    result: { type: String }
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+
+<br>
+
+## API Endpoints (backend routes)
+
+| HTTP Method | URL                    | Request Body                 | Success status | Error Status | Description                                                                                                                     |
+| ----------- | ---------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| POST        | `/auth/signup`         | {name, email, password, field, profileImg}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`          | {email, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
+| GET         | `/profile/:id`     |                              |                |              | show specific profile                                                                                                            |
+| PUT         | `/editprofile/:id`     | { name, profileImg }                | 201            | 400          | edit profile                                                                                                                     |
+| DELETE      | `/profile/:id`     |                              | 200            | 400          | delete profile                                                                                                                   |
+| GET         | `/app`             |                              |                | 400          | Show all apps                                                                                                            |
+| POST        | `/app`             | { model, prompt, temperature, max_tokens, top_p, frequency_penalty, presence_penalty }       | 201            | 400          | Create and save a new app                                                                                                |
+| GET         | `/app/:appName`         |                              |                |              | Show specific app                                                                                                        |
+| POST        | `/app/:appName` | {appName, question } |                |              | add results                                                                                                                     |
+
+<br>
+<br>
+
+
+
+<br>
+
+
+
+<br><h1 align="center" dir="auto"><strong>mAIspace</strong></h1>
+
+
+<a href="https://maispace.netlify.com" target="_blank">
+<img src="maispacee.png" alt="mAIspace"/></a>
+
+
+<br><br>
+
+## API
+
+<a href="https://openai.com/api/">OpenAI</a>
+
+<br>
+
+
+
+## Git
+
+[Client Repository](https://github.com/lzaquine/mAIspace-client)
+
+[Server Repository](https://github.com/lzaquine/mAIspace-server)
+
+[Deployed App](https://maispace.netlify.app)
+
+<br>
+
+
+### Contributors
+
+⚒️ Lucas Zaquine - [GitHub](https://github.com/lzaquine) - [LinkedIn](https://www.linkedin.com/in/lucaszaquine/)
