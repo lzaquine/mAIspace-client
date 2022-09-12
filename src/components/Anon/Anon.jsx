@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 function Anon({ children }) {
   const { loggedIn, loading } = useContext(AuthContext);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
 
   if (loggedIn) return <Navigate to="/" />;
   else return children;
