@@ -1,8 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
-import screamnobg from '../../Image/screamnobg.png';
 import andrenobg from '../../Image/andrenobg.png';
 
 function AndreBot() {
