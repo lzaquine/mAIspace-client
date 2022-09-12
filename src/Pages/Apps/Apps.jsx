@@ -11,7 +11,7 @@ import homenobg from "../../Image/homenobg.png";
 import nobginterview from "../../Image/nobginterview.png";
 import booknobg from "../../Image/booknobg.png";
 import { useState, useEffect } from "react";
-import RingLoader from "react-spinners/RingLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Apps() {
   const [loading, setLoading] = useState(false);
@@ -27,7 +27,7 @@ function Apps() {
   return (
     <div>
       {loading ? (
-        <RingLoader className="flex m-auto h-screen mt-60 justify-center items-center" color={'#FFFFFF'} loading={loading} size={75} />
+        <BeatLoader className="flex m-auto h-screen mt-60 justify-center items-center" color={'#797a97'} loading={loading} size={20} />
       ) : (
         <div className=" grid grid-rows-4 grid-cols-4">
           <Link to="/app/Marvbot">
