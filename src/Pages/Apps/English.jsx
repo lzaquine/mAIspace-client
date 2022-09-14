@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import english from "../../Image/english.jpeg";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function English() {
   const [prompt, setPrompt] = useState(null);
@@ -11,6 +12,8 @@ function English() {
   const [results, setResults] = useState(null);
   const [app, setApp] = useState(null);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+  
 
   const getEnglish = async () => {
     try {
@@ -41,6 +44,10 @@ function English() {
   useEffect(() => {
     getEnglish();
     getUser();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, [user]);
 
   const handleQuestion = (e) => setQuestion(e.target.value);
@@ -96,7 +103,12 @@ function English() {
         </button>
       </form>
 
-      {results &&
+      <div>
+      {loading ? (
+        <BeatLoader className="flex m-auto h-screen mt-60 justify-center items-center" color={'#797a97'} loading={loading} size={20} />
+      ) : (
+        <div>
+        {results &&
         results
           .filter((el) => el.app === app)
           .map((el, index) => {
@@ -110,6 +122,11 @@ function English() {
               </p>
             );
           })}
+          </div>
+      )}
+      </div>
+
+      
       <Link
         className="btn btn-sm rounded-full pl-8 pr-8 text-white ml-19 mt-10 text-center "
         to="/app"
