@@ -47,7 +47,7 @@ function English() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   }, [user]);
 
   const handleQuestion = (e) => setQuestion(e.target.value);
