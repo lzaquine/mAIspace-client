@@ -33,13 +33,13 @@ function SignUp() {
 
 
   function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token: " + response.data.authToken);
+    console.log("Encoded JWT ID token: " + response.credential);
   }
 
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      client_id: "299027234598-fahdj57q84jh8onto8dh5ii0neu10un7.apps.googleusercontent.com",
       callback: handleCallbackResponse
     });
     google.accounts.id.renderButton(
