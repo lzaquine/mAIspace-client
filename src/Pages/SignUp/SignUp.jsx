@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import maispace from "../../Image/maispace.png";
@@ -30,6 +30,25 @@ function SignUp() {
         setErrorMessage(err.response.data.errorMessage);
       });
   };
+
+
+  function handleCallbackResponse(response) {
+    console.log("Encoded JWT ID token: " + response.data.authToken);
+  }
+
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      callback: handleCallbackResponse
+    });
+    google.accounts.id.renderButton(
+      document.getElementById("google-signin"),
+      { theme: "outline", size: "large" } 
+    );
+  }, []);
+
+
 
   return (
     <div className="card w-96 saturate-200 glass absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
@@ -76,6 +95,7 @@ function SignUp() {
       <Link className="mb-4" to="/login">
         Log In
       </Link>
+      <div id="google-signin"></div>
     </div>
   );
 }

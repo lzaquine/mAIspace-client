@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
+    "gapi-script": "^1.2.0",
     "openai": "^3.0.0",
     "postcss": "^8.4.16",
     "primeicons": "^5.0.0",
