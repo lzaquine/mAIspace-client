@@ -9,6 +9,7 @@
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
     "gapi-script": "^1.2.0",
+    "jwt-decode": "^3.1.2",
     "openai": "^3.0.0",
     "postcss": "^8.4.16",
     "primeicons": "^5.0.0",
