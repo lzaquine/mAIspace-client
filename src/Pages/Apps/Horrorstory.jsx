@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import screamnobg from "../../Image/screamnobg.png";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Horrorstory() {
   const [prompt, setPrompt] = useState(null);
@@ -11,6 +12,7 @@ function Horrorstory() {
   const [results, setResults] = useState(null);
   const [app, setApp] = useState(null);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   const getHorrorstory = async () => {
     try {
@@ -41,6 +43,10 @@ function Horrorstory() {
   useEffect(() => {
     getHorrorstory();
     getUser();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, [user]);
 
   const handleQuestion = (e) => setQuestion(e.target.value);
@@ -98,19 +104,28 @@ function Horrorstory() {
         </button>
       </form>
 
-      {results &&
+      <div>
+      {loading ? (
+        <BeatLoader className="flex m-auto h-screen mt-60 justify-center items-center" color={'#797a97'} loading={loading} size={20} />
+      ) : (
+        <div>
+        {results &&
         results
           .filter((el) => el.app === app)
           .map((el, index) => {
             return (
               <p>
                 <hr className="mb-2 mt-2 opacity-20" />
-                Q: <br /> {el.question}
+                {el.question}
                 <br />
-                A: <br /> {el.answer}
+
+                {el.answer}
               </p>
             );
           })}
+          </div>
+      )}
+      </div>
       <Link
         className="btn btn-sm rounded-full pl-8 pr-8 text-white ml-19 mt-10 text-center "
         to="/app"
