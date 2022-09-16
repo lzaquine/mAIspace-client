@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import maispace from "../../Image/maispace.png";
+import jwt_decode from "jwt-decode";
 
 function SignUp() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [user, setUser] = useState({});
 
   const navigate = useNavigate();
 
@@ -34,6 +36,9 @@ function SignUp() {
 
   function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
+    let decoded = jwt_decode(response.credential);
+    console.log(decoded)
+    setUser(decoded);
   }
 
   useEffect(() => {
@@ -44,10 +49,9 @@ function SignUp() {
     });
     google.accounts.id.renderButton(
       document.getElementById("google-signin"),
-      { theme: "outline", size: "large" } 
+      { theme: "outline", width: "384px"  } 
     );
   }, []);
-
 
 
   return (
@@ -87,6 +91,7 @@ function SignUp() {
         >
           Sign Up
         </button>
+        
       </form>
 
       {errorMessage && <p>{errorMessage}</p>}
@@ -95,7 +100,8 @@ function SignUp() {
       <Link className="mb-4" to="/login">
         Log In
       </Link>
-      <div id="google-signin"></div>
+      
+        <div id="google-signin"></div>
     </div>
   );
 }
