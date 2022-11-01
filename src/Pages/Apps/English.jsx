@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import english from "../../Image/english.jpeg";
 import BeatLoader from "react-spinners/BeatLoader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function English() {
   const [prompt, setPrompt] = useState(null);
@@ -13,6 +15,7 @@ function English() {
   const [app, setApp] = useState(null);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const notify = () => toast("VERY NICE!");
   
 
   const getEnglish = async () => {
@@ -98,9 +101,11 @@ function English() {
         <button
           className="btn glass btn-sm rounded-full text-white text-center pl-5 pr-5 mb-8"
           type="submit"
+          onClick={notify}
         >
           Submit
         </button>
+        <ToastContainer />
       </form>
 
       <div>
