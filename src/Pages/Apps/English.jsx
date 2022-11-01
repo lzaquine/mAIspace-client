@@ -15,7 +15,18 @@ function English() {
   const [app, setApp] = useState(null);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  const notify = () => toast("VERY NICE!");
+  const notify = () => toast.success('🦄 Wow so easy!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    theme: "dark",
+    });
+
+  
   
 
   const getEnglish = async () => {
