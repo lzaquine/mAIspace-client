@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import maispace from "../../Image/maispace.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function LoginPage() {
@@ -10,6 +12,16 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [field, setField] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const notify = () => toast.success('🦄 ¡Wow so logged in! 🦄', {
+    position: "top-center",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    theme: "dark",
+    });
 
 
   const navigate = useNavigate();
@@ -65,10 +77,22 @@ function LoginPage() {
         <button
           type="submit"
           className="btn btn-wide btn-sm btn-outline rounded-full text-white text-center mt-1 mb-2"
+          onClick={notify}
         >
           Log In
         </button>
-        
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable={false}
+pauseOnHover
+theme="light"
+/>
       </form>
 
       {errorMessage && <p>{errorMessage}</p>}
