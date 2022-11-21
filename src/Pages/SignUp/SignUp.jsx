@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import maispace from "../../Image/maispace.png";
 import jwt_decode from "jwt-decode";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
   const [password, setPassword] = useState("");
@@ -10,6 +12,16 @@ function SignUp() {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
   const [user, setUser] = useState({});
+  const notify = () => toast.success('🦄 ¡Wow so signed up! 🦄', {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: false,
+    progress: undefined,
+    theme: "dark",
+    });
 
   const navigate = useNavigate();
 
@@ -88,9 +100,22 @@ function SignUp() {
         <button
           className="btn btn-wide btn-sm btn-outline rounded-full text-white text-center mt-1 mb-2"
           type="submit"
+          onClick={notify}
         >
           Sign Up
         </button>
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable={false}
+pauseOnHover
+theme="light"
+/>
         
       </form>
 
