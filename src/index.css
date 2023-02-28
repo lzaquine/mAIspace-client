@@ -12,8 +12,8 @@
 
 html,
 body{
- /*  overflow-x: hidden;
-  overflow-y: hidden; */
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body {
@@ -80,7 +80,7 @@ a:-webkit-any-link {
 @media only screen and (min-width: 780px) {
 .maiLogo {
   position: absolute;
-  width: 30vw;
+  /* width: 30vw; */
   top: 20vh;
   left: 10vw;
 }

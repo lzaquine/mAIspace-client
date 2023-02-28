@@ -56,7 +56,7 @@ function HomePage() {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
      <Blober/>
-      <img src={maispace} alt="logo" className=" maiLogo w-48 mb-8 md:mb-16 mt-8 " />
+      <img src={maispace} alt="logo" className="maiLogo w-48 md:w-96 mb-8 md:mb-16 mt-8" />
 
       <nav className="w-full flex justify-center md:justify-start md:ml-10 mb-8 md:mb-0 myNav">
         <ul className="navUl flex flex-row space-x-8">
