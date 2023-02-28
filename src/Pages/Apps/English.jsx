@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import english from "../../Image/english.jpeg";
+/* import english from "../../Image/english.jpeg"; */
 import BeatLoader from "react-spinners/BeatLoader";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -88,11 +88,11 @@ function English() {
 
   return (
     <div>
-      <img
+      {/* <img
         src={english}
         alt="logo"
         className="card w-24 rounded-lg left-1/2 transform mt-7 mb-5 -translate-x-1/2 saturate-200 glass justify-center"
-      />
+      /> */}
 
       <h1>Grammar correction</h1>
 

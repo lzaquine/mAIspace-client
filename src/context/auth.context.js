@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 //Creates the context
 const AuthContext = createContext();
 
@@ -9,6 +9,9 @@ function AuthWrapper(props) {
  const [loading, setLoading] = useState(true);
  const [loggedIn, setLoggedIn] = useState(false);
  const [user, setUser] = useState(null);
+
+ const navigate = useNavigate();
+
 
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
@@ -44,6 +47,7 @@ function AuthWrapper(props) {
   const logout = () => {
    localStorage.removeItem('authToken');
    authenticateUser();
+   navigate("/");
   }
 
 

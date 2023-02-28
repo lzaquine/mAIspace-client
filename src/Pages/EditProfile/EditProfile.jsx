@@ -2,24 +2,28 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import maispace from "../../Image/maispace.png";
-import BeatLoader from "react-spinners/BeatLoader";
+import NavbarEditProfile from '../../components/NavbarEditProfile'
+import Blober from '../../components/Blober'
+import EditCard from '../../components/EditCard'
 
 function EditProfile() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [field, setField] = useState("");
   const { user } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
+  const [profile, setProfile] = useState(null);
 
   const navigate = useNavigate();
+  const storedToken = localStorage.getItem("authToken");
 
   const getProfile = async () => {
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/${user._id}`
+        `${process.env.REACT_APP_API_URL}/profile/${user._id}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
       );
-
+      setProfile(response.data);
       setName(response.data.name);
       setEmail(response.data.email);
     } catch (error) {
@@ -29,27 +33,23 @@ function EditProfile() {
 
   useEffect(() => {
     getProfile();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
+
   }, []);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-  const handleField = (e) => setField(e.target.value);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { name, email, field };
+    const body = { name, email };
 
     axios
       .put(`${process.env.REACT_APP_API_URL}/editprofile/${user._id}`, body)
       .then(() => {
         setName("");
         setEmail("");
-        setField("");
         navigate(`/profile`);
       })
       .catch((err) => console.log(err));
@@ -57,7 +57,62 @@ function EditProfile() {
 
   return (
     <div>
-    {loading ? (
+    <NavbarEditProfile/>
+    <Blober/>
+    <EditCard/>
+    {profile && (
+        <>
+          <h1 className="mt-14 text-black opacity-20 text-3xl">Hi, {profile.name}!</h1>
+        </>
+      )}
+      <>
+<div className="card-container md:mr-28 md:ml-28 opacity-20">
+  <div className="card md:top-20">
+  <i className="fa-solid fa-code"></i>
+    <h3>Examples</h3>
+  </div>
+  <div className="card md:top-20">
+  <i class="fa-sharp fa-solid fa-gears"></i>
+    <h3>Capabilities</h3>
+  </div>
+  <div className="card md:top-20">
+  <i class="fa-sharp fa-solid fa-bug"></i>
+    <h3>Limitations</h3>
+  </div>
+  <div className="card md:top-20">
+    <h3>Prompt</h3>
+    <hr />
+    <p>Explain quantum computing in simple terms.</p>
+  </div>
+  <div className="card md:top-20">
+    <h3>Card Title</h3>
+    <hr />
+    <p>Remembers what user said earlier in the conversation</p>
+  </div>
+  <div className="card md:top-20">
+    <h3>Card Title</h3>
+    <hr />
+    <p>May occasionally generate incorrect information</p>
+  </div>
+  <div className="card md:top-20">
+  <h3>Prompt</h3>
+    <hr />
+    <p>How do I make an HTTP request in Javascript?</p>
+  </div>
+  <div className="card md:top-20">
+    <h3>Card Title</h3>
+    <hr />
+    <p>Trained to accept inappropriate requests</p>
+  </div>
+  <div className="card md:top-20">
+    <h3>Card Title</h3>
+    <hr />
+    <p>May occasionally produce harmful instructions or biased content</p>
+  </div>
+  
+</div>
+</>
+    {/* {loading ? (
         <BeatLoader
           className="flex m-auto h-screen mt-60 justify-center items-center"
           color={"#797a97"}
@@ -124,7 +179,7 @@ function EditProfile() {
         </Link>
       </div>
         </>
-        )}
+        )} */}
     </div>
   );
 }

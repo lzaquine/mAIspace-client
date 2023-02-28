@@ -1,40 +1,26 @@
-import { useState, useContext, Component } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import maispace from "../../Image/maispace.png";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import NavbarLogIn from "../../components/NavbarLogIn";
+import Blober from '../../components/Blober'
 
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [field, setField] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
-  const notify = () => toast.success('🦄 ¡Wow so logged in! 🦄', {
-    position: "top-center",
-    autoClose: 1500,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: false,
-    progress: undefined,
-    theme: "dark",
-    });
-
 
   const navigate = useNavigate();
-
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleField = (e) => setField(e.target.value);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const body = { email, password, field };
+    const body = { email, password };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/auth/login`, body)
@@ -52,57 +38,50 @@ function LoginPage() {
   };
 
   return (
-    <div className="card w-96 glass z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-20">
-      <img src={maispace} alt="logo" className="w-3/6 mt-4 translate-x-1/2" />
+    <>
+      <NavbarLogIn />
+      <Blober/>
+      <div className="my-card bg-white p-8 rounded-3xl mx-auto mt-16 max-w-xl shadow-[0_15px_40px_10px_#66b1d6]">
+        <img src={maispace} alt="logo" className="w-48 mx-auto mb-6" />
+        <hr className="card-hr mb-6" />
+        <form onSubmit={handleLoginSubmit}>
+          <input
+            className="w-full text-black border-gray-300 rounded-lg mb-4 py-2 px-3 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-[#66b1d6]"
+            type="email"
+            name="email"
+            placeholder="EMAIL"
+            onChange={handleEmail}
+          />
+          <input
+            className="w-full text-black border-gray-300 rounded-lg mb-4 py-2 px-3 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-[#66b1d6]"
+            type="password"
+            name="password"
+            placeholder="PASSWORD"
+            onChange={handlePassword}
+          />
+          <hr className="card-hr2 my-6" />
+          <button
+            type="submit"
+            className="w-full bg-green-500 rounded-lg py-2 text-white font-bold text-lg focus:outline-none hover:bg-green-600 transition-all duration-300"
+          >
+            LOG IN
+          </button>
+        </form>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label htmlFor="email"></label>
-        <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleEmail}
-        />
+        {errorMessage && (
+          <p className="error-card text-red-500 text-center my-6">
+            {errorMessage}
+          </p>
+        )}
 
-        <label htmlFor="password"></label>
-        <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handlePassword}
-        />
-
-        <button
-          type="submit"
-          className="btn btn-wide btn-sm btn-outline rounded-full text-white text-center mt-1 mb-2"
-          onClick={notify}
-        >
-          Log In
-        </button>
-        <ToastContainer
-position="top-center"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable={false}
-pauseOnHover
-theme="light"
-/>
-      </form>
-
-      {errorMessage && <p>{errorMessage}</p>}
-
-      <hr className="mt-3 mt-6 opacity-20" />
-      <p className="mt-4 ">Don't have an account yet?</p>
-      <Link className="mb-4" to={"/signup"}>
-        Create New Account
-      </Link>
-    </div>
+        <p className="p-card text-center mt-6 text-black">
+          Don't have an account yet?{" "}<br/>
+          <Link className="link-card-acc text-[#66b1d6] hover:text-[#4e98bd] font-bold" to={"/signup"}>
+            Create New Account
+          </Link>
+        </p>
+      </div>
+    </>
   );
 }
 

@@ -1,27 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import maispace from "../../Image/maispace.png";
-import jwt_decode from "jwt-decode";
+import NavbarSignUp from "../../components/NavbarSignUp";
+import Blober from '../../components/Blober'
 
 
-function SignUp() {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+function SignUpPage() {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
-  const [user, setUser] = useState({});
-
 
   const navigate = useNavigate();
 
+  const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleName = (e) => setName(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSignUpSubmit = (e) => {
     e.preventDefault();
-
     const body = { name, email, password };
 
     axios
@@ -30,83 +28,67 @@ function SignUp() {
         navigate("/login");
       })
       .catch((err) => {
-        console.log(err);
         setErrorMessage(err.response.data.errorMessage);
       });
   };
 
-
-  function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
-    let decoded = jwt_decode(response.credential);
-    console.log(decoded)
-    setUser(decoded);
-  }
-
-  useEffect(() => {
-    /* global google */
-    google.accounts.id.initialize({
-      client_id: "299027234598-fahdj57q84jh8onto8dh5ii0neu10un7.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("google-signin"),
-      { theme: "outline", width: "384px"  } 
-    );
-  }, []);
-
-
   return (
-    <div className="card w-96 saturate-200 glass absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-20">
-      <img src={maispace} alt="logo" className="w-3/6 mt-4 translate-x-1/2" />
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name"></label>
-        <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
-          type="text"
-          name="name"
-          placeholder="Name"
-          onChange={handleName}
-        />
-
-        <label htmlFor="email"></label>
-        <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleEmail}
-        />
-
-        <label htmlFor="password"></label>
-        <input
-          className="input input-bordered w-full rounded-full max-w-xs mt-1 mb-3 text-center text-neutral-400 opacity-95 justify-center"
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handlePassword}
-        />
-        <button
-          className="btn btn-wide btn-sm btn-outline rounded-full text-white text-center mt-1 mb-2"
-          type="submit"
-        >
-          Sign Up
-        </button>
-        
-        
-      </form>
-
-      {errorMessage && <p>{errorMessage}</p>}
-      <hr className="mt-3 mt-6 opacity-20" />
-      <p className="mt-4">Already have an account?</p>
-      <Link className="mb-4" to="/login">
-        Log In
-      </Link>
+    <>
+      <NavbarSignUp />
       
-        <div id="google-signin"></div>
-    </div>
+      <div className="my-card bg-white p-8 rounded-3xl mx-auto mt-16 max-w-xl shadow-[0_15px_40px_10px_#66b1d6]">
+        <img src={maispace} alt="logo" className="w-48 mx-auto mb-6" />
+        <hr className="card-hr mb-6" />
+        <form onSubmit={handleSignUpSubmit}>
+          <input
+            className="w-full text-black border-gray-300 rounded-lg mb-4 py-2 px-3 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-[#66b1d6]"
+            type="text"
+            name="name"
+            placeholder="NAME"
+            onChange={handleName}
+          />
+          <input
+            className="w-full text-black border-gray-300 rounded-lg mb-4 py-2 px-3 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-[#66b1d6]"
+            type="email"
+            name="email"
+            placeholder="EMAIL"
+            onChange={handleEmail}
+          />
+          <input
+            className="w-full text-black border-gray-300 rounded-lg mb-4 py-2 px-3 placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring focus:border-[#66b1d6]"
+            type="password"
+            name="password"
+            placeholder="PASSWORD"
+            onChange={handlePassword}
+          />
+          <hr className="card-hr2 my-6" />
+          <button
+            type="submit"
+            className="w-full bg-green-500 rounded-lg py-2 text-white font-bold text-lg focus:outline-none hover:bg-green-600 transition-all duration-300"
+          >
+            CREATE NEW ACCOUNT
+          </button>
+        </form>
+
+        {errorMessage && (
+          <p className="error-card text-red-500 text-center my-6">
+            {errorMessage}
+          </p>
+        )}
+
+        <p className="p-card text-center mt-6 text-black">
+          Already have an account?{" "}<br/>
+          <Link
+            className="link-card-acc text-[#66b1d6] hover:text-[#4e98bd] font-bold"
+            to={"/login"}
+          >
+            Log In
+          </Link>
+        </p>
+        <Blober/>
+      </div>
+    </>
   );
 }
 
-export default SignUp;
+export default SignUpPage;

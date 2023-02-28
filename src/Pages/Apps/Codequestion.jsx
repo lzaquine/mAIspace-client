@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import js from "../../Image/js.jpeg";
+/* import js from "../../Image/js.jpeg"; */
 import BeatLoader from "react-spinners/BeatLoader";
 
 function Codequestion() {
@@ -73,11 +73,11 @@ function Codequestion() {
 
   return (
     <div>
-      <img
+      {/* <img
         src={js}
         alt="logo"
         className="card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 saturate-200 mt-5 mb-5 glass justify-center"
-      />
+      /> */}
 
       <h1>JavaScript Helper</h1>
 

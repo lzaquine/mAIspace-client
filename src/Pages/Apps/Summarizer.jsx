@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import suma from "../../Image/suma.png";
+/* import suma from "../../Image/suma.png"; */
 import BeatLoader from "react-spinners/BeatLoader";
 
 function Summarizer() {
@@ -73,11 +73,11 @@ function Summarizer() {
 
   return (
     <div>
-      <img
+      {/* <img
         src={suma}
         alt="logo"
         className="card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-7 mb-3  saturate-200 glass justify-center"
-      />
+      /> */}
       <h1>Summarizer</h1>
 
       <h2>

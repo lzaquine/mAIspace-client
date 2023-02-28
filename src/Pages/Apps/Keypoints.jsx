@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import keys from "../../Image/keys.jpeg";
+/* import keys from "../../Image/keys.jpeg"; */
 import BeatLoader from "react-spinners/BeatLoader";
 
 function Keypoints() {
@@ -73,11 +73,11 @@ function Keypoints() {
 
   return (
     <div>
-      <img
+      {/* <img
         src={keys}
         alt="logo"
         className="card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-7 mb-2 saturate-200 glass justify-center"
-      />
+      /> */}
 
       <h1>Keypoints</h1>
 

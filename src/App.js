@@ -16,7 +16,9 @@ import Horrorstory from "./Pages/Apps/Horrorstory";
 import Keywords from "./Pages/Apps/Keywords";
 import Codequestion from "./Pages/Apps/Codequestion";
 import Marv from "./Pages/Apps/Marv";
+import About from "./Pages/About/About"
 import "./App.css";
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route path="/login" element={<Anon> <LoginPage /> </Anon>} />
         <Route path="/profile" element={<Private> <Profile /> </Private>  } />
         <Route path="/app" element={<Apps />} />
+        <Route path="/about" element={<About />} />
         <Route path="/app/english" element={<English />} />
         <Route path="/app/list" element={<List />} />
         <Route path="/app/summarizer" element={<Summarizer />} />

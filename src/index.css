@@ -1,29 +1,513 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap'); */
+@font-face {
+  font-family: 'Telegraf-Medium';
+  src: url('../public/PPTelegraf-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;900&display=swap');
+
 
 
 html,
 body{
-  overflow-x: hidden;
+ /*  overflow-x: hidden;
+  overflow-y: hidden; */
 }
 
 body {
   margin: 0;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'League Spartan', 'Telegraf-Medium';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://w0.peakpx.com/wallpaper/731/321/HD-wallpaper-iphone-12-pro-iphone-12-pro-version.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: white;
+  background-color: white;
   height: 100vh;
   width: 100vw;
 }
 
-a:-webkit-any-link {
-  text-decoration: none;
-  color: white;
+/* AI USER INPUT */
+
+.input-container input::placeholder {
+  color: black;
+  opacity: 50%;
+}
+
+.input-container input {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 70%;
+  padding: 0;
+  background-color: #66b1d6;
+  color: rgb(0, 0, 0);
+  background-image: url('/src/Image/maispace.png'); 
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%; 
+  background-size: 30px 30px; 
+  min-height: 60px;
+  resize: vertical;
+  word-wrap: break-word;
+}
+.input-container input:focus {
+  outline: none;
+}
+
+.input-container button {
+  position: absolute;
+  top: 86%;
+  right: 15.5%;
+  background-color: black;
+  padding: 18px;
+  opacity: 50%;
+  border-radius: 25px;
+  color: black;
+  font-size: 1px;
+  line-height: 1.5;
+  text-align: center;
   cursor: pointer;
 }
+
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* HOME */
+@media only screen and (min-width: 780px) {
+.maiLogo {
+  position: absolute;
+  width: 30vw;
+  top: 20vh;
+  left: 10vw;
+}
+
+.myNav {
+  position: absolute;
+  top: 13vh;
+  left: 47vw;
+  width: 30vw;
+  color: black;
+}
+.navUl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.homeHome {
+  color: #66b1d6;
+  text-decoration: underline;
+}
+.yourAi {
+  position: absolute;
+  top: 23vh;
+  left: 50vw;
+  font-size: 5rem;
+  color: #66b1d6;
+}
+
+.playgroundHome {
+  position: absolute;
+  top: 35vh;
+  left: 50vw;
+  font-size: 5rem;
+  color: #66b1d6;
+}
+
+.mySectionHome {
+  position: absolute;
+  top: 53vh;
+  width: 70vw;
+  left: 34vw;
+  color: black;
+}
+
+.myPSectionHome {
+  line-height: 1.5;
+}
+.clickDiscover {
+  position: absolute;
+  top: 23vh;
+  left: 16vw;
+}
+.btnHome {
+  position: absolute;
+  top: 68vh;
+  left: 50vw;
+  background-color: #66b1d6;
+  color: white;
+  padding: 15px 75px;
+  border-radius: 50px;
+}
+
+.hrHome {
+  position: absolute;
+  border: 1px solid black;
+  top: 83vh;
+  left: 50vw;
+  width: 17vw;
+  
+} 
+}
+.maiLogo {
+  animation: scale 8s infinite;
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
+
+/* LOGIN SIGNUP */
+
+.myCard {
+  width: 30vw;
+  position: absolute;
+  top: 16vh;
+  left: 37vw;
+  height: 73vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 15px 40px 10px #66b1d6;
+  border-radius: 50px;
+}
+
+.logoCard{
+  width: 200px;
+  position: inherit;
+  top: 1vh;
+  left: 8vw;
+}
+
+.cardHr{
+  position: absolute;
+  border: 0.2px solid black;
+  top: 28vh;
+  width: 26vw;
+  opacity: 30%;
+  left: 2vw;
+}
+
+.nameCard {
+  position: absolute;
+  top: 30vh;
+  left: 7vw;
+  background-color: #66b1d6;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 7px;
+}
+
+.nameCard::placeholder {
+  color: black;
+  opacity: 70%;
+}
+
+.nameCard:focus::placeholder {
+  color: transparent;
+}
+
+.emailCard{
+  position: absolute;
+  top: 36vh;
+  left: 7vw;
+  background-color: #66b1d6;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 7px;
+}
+
+.emailCard::placeholder {
+  color: black;
+  opacity: 70%;
+}
+
+.emailCard:focus::placeholder {
+  color: transparent;
+}
+
+.passwordCard{
+  position: absolute;
+  top: 42vh;
+  left: 7vw;
+  background-color: #66b1d6;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 7px;
+}
+
+.passwordCard::placeholder {
+  color: black;
+  opacity: 70%;
+}
+
+.passwordCard:focus::placeholder {
+  color: transparent;
+}
+
+.cardHr2{
+  position: absolute;
+  border: 0.2px solid black;
+  top: 50vh;
+  width: 26vw;
+  opacity: 30%;
+  left: 2vw;
+}
+
+.errorCard{
+  position: absolute;
+  left: 8vw;
+  top: 47vh;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+.btnCard {
+  position: absolute;
+  top: 53vh;
+  left: 7.6vw;
+  background-color: #66d67b;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+.pCard{
+  position: absolute;
+  left: 8vw;
+  top: 63vh;
+  color: black;
+}
+
+.linkCard{
+  position: absolute;
+  left: 12.7vw;
+  top: 67vh;
+  color: black;
+  text-shadow: 1px 1px #66b1d6;
+}
+
+.emailCardLogIn {
+  position: absolute;
+  top: 33vh;
+  left: 7vw;
+  background-color: #66b1d6;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 7px;
+}
+
+.emailCardLogIn::placeholder {
+  color: black;
+  opacity: 70%;
+}
+
+.emailCardLogIn:focus::placeholder {
+  color: transparent;
+}
+
+.passwordCardLogIn{
+  position: absolute;
+  top: 40vh;
+  left: 7vw;
+  background-color: #66b1d6;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 7px;
+}
+
+.passwordCardLogIn::placeholder {
+  color: black;
+  opacity: 70%;
+}
+
+.passwordCardLogIn:focus::placeholder {
+  color: transparent;
+}
+
+.btnCardLogIn{
+  position: absolute;
+  top: 54vh;
+  left: 7vw;
+  background-color: #66d67b;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  padding: 10px 85px;
+}
+
+.linkCardAcc{
+  position: absolute;
+  left: 9.5vw;
+  top: 67vh;
+  color: black;
+  text-shadow: 1px 1px #66b1d6;
+}
+
+/* FOOTER */
+
+/* footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+} */
+
+/* BLOB */
+
+#blob {
+  background-color: black;
+  height: 400px;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, #86d7ff, rgb(195, 164, 255));
+  animation: rotate 20s infinite;
+  filter: blur(150px)
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  50% {
+    scale: 1 1.5;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+
+/* CARDS */
+
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: black;
+}
+
+.card {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  box-shadow: 0 5px 10px 5px rgb(230, 228, 218);
+}
+
+.card h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+
+/* PROFILE CARD */
+
+.profile-card {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 55vh;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-card-header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.profile-card-header button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.profile-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-card-content label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.profile-card-content input[type="text"],
+.profile-card-content input[type="email"] {
+  border-radius: 5px;
+  box-shadow: 1.5px 1px 1px 1px #66b1d6;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.profile-card-content button {
+  background-color: #66d67b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.profile-card-content button:last-of-type {
+  background-color: #f71403;
+}
+.profile-card-content button:last-of-type:hover {
+  background-color: #ce1103;
+  transition: all;
+  transition-duration: 300ms;
+  
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

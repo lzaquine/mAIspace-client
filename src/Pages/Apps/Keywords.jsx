@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import keyword from "../../Image/keyword.jpeg";
+/* import keyword from "../../Image/keyword.jpeg"; */
 import BeatLoader from "react-spinners/BeatLoader";
 
 function Keywords() {
@@ -73,11 +73,11 @@ function Keywords() {
 
   return (
     <div>
-      <img
+     {/*  <img
         src={keyword}
         alt="logo"
         className="card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-7 mb-3 saturate-200 glass justify-center"
-      />
+      /> */}
 
       <h1>Keywords</h1>
 

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
-import booknobg from "../../Image/booknobg.png";
+/* import booknobg from "../../Image/booknobg.png"; */
 import BeatLoader from "react-spinners/BeatLoader";
 
 function List() {
@@ -73,11 +73,11 @@ function List() {
 
   return (
     <div>
-      <img
+      {/* <img
         src={booknobg}
         alt="logo"
         className="card w-24 rounded-lg left-1/2 transform -translate-x-1/2 mt-2 mt-5 mb-5 saturate-200 glass justify-center"
-      />
+      /> */}
 
       <h1>List 10 books</h1>
 
