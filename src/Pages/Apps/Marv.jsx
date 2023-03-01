@@ -99,10 +99,11 @@ function Marvbot() {
               return (
                 <div
                   key={index}
-                  className="flex flex-col p-4 mb-2 rounded-lg"
+                  className="flex flex-col p-4 mb-2 rounded-lg chatDiv"
                 >
-                  <div className="text-left font-bold flex-row bg-white mb-6"><p className="text-[#423f3f]">You: {el.question}</p></div>
-                  <div className="text-black bg-[#66b1d6]"><p className="bg-[#66b1d6]">{el.answer}</p></div>
+               
+                  <div className="text-left font-bold flex-row mb-6"><p className="text-[#423f3f]">You: {el.question}</p></div>
+                  <div className="text-black"><p>{el.answer}</p></div>
                 </div>
               );
             })}

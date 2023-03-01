@@ -25,6 +25,10 @@ body {
   width: 100vw;
 }
 
+.chatDiv {
+  background-image: linear-gradient(#ffffff 50%, #66b1d6 0%);
+}
+
 /* AI USER INPUT */
 
 .input-container input::placeholder {
