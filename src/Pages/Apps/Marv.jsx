@@ -101,7 +101,7 @@ function Marvbot() {
                   key={index}
                   className="flex flex-col bg-gray-200 p-4 mb-2 rounded-lg"
                 >
-                  <div className="text-left font-bold"><p className="text-black">You:</p> {el.question}</div>
+                  <div className="text-left font-bold row"><p className="text-black">You: </p> <p>{el.question}</p></div>
                   <div className="mt-8 text-black">{el.answer}</div>
                 </div>
               );
