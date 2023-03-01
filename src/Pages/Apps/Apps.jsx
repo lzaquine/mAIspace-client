@@ -52,7 +52,7 @@ const MyCarousel = () => {
 
     <div className="flex justify-center items-center h-screen">
       <div className="glide xl:w-[54rem] lg:w-[42rem] md:w-[30rem] sm:w-[18rem] px-16 py-8 bg-opacity-60 rounded-3xl">
-        <div className="glide__track" data-glide-el="track">
+        <div className="glide__track xl:w-[96rem] lg:w-[80rem] md:w-[54rem] sm:w-[18rem] px-16 py-8" data-glide-el="track">
           <ul className="glide__slides">
             <li className="glide__slide transition duration-300 transform">
               <div className="relative flex flex-col text-center h-40 items-center justify-center rounded-3xl duration-300 ease-in-out mb-10">
