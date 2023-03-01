@@ -36,6 +36,7 @@ function Marvbot() {
         );
         setResults(response.data.results);
         console.log(response.data.results);
+        console.log(user)
       }
     } catch (error) {
       console.log(error);
@@ -102,7 +103,7 @@ function Marvbot() {
                   key={index}
                   className="flex flex-col bg-gray-200 p-4 mb-2 rounded-lg"
                 >
-                  <div className="text-right font-bold ">{el.question}</div>
+                  <div className="text-right font-bold">{el.question}</div>
                   <div className="mt-4 text-black">{el.answer}</div>
                 </div>
               );
