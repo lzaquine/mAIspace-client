@@ -102,7 +102,7 @@ function Marvbot() {
                   className="flex flex-col  p-4 mb-2 rounded-lg"
                 >
                   <div className="text-left font-bold flex-row bg-white"><p className="text-black">You: </p> <p>{el.question}</p></div>
-                  <div className="mt-8 text-black bg-[#66b1d6]">{el.answer}</div>
+                  <div className="mt-8 text-black bg-[#66b1d6]"><p className="bg-[#66b1d6]">{el.answer}</p></div>
                 </div>
               );
             })}
