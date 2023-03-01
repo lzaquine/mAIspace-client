@@ -35,6 +35,7 @@ function Marvbot() {
           `${process.env.REACT_APP_API_URL}/profile/${user._id}`
         );
         setResults(response.data.results);
+        console.log(response.data.results);
       }
     } catch (error) {
       console.log(error);
@@ -47,7 +48,7 @@ function Marvbot() {
     getUser();
   }, [user]);
 
-  const handleQuestion = (e) => setQuestion(e.target.value);
+  /* const handleQuestion = (e) => setQuestion(e.target.value); */
   const token = localStorage.getItem("authToken");
 
   const handleSubmit = async (e) => {
@@ -99,10 +100,10 @@ function Marvbot() {
               return (
                 <div
                   key={index}
-                  className="flex flex-col bg-gray-100 p-4 mb-2 rounded-lg"
+                  className="flex flex-col bg-gray-200 p-4 mb-2 rounded-lg"
                 >
-                  <div className="text-right font-bold">{el.question}</div>
-                  <div className="mt-2">{el.answer}</div>
+                  <div className="text-right font-bold ">{el.question}</div>
+                  <div className="mt-4 text-black">{el.answer}</div>
                 </div>
               );
             })}
