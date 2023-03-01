@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 function Marvbot() {
@@ -16,26 +15,32 @@ function Marvbot() {
       let response = await axios.get(
         `${process.env.REACT_APP_API_URL}/app/marvbot`
       );
-      setQuestion(response.data.question);
-      setPrompt(response.data.prompt);
-      setAnswer(response.data.answer);
-      setApp(response.data._id);
-      console.log(response.data);
+      if (response && response.data) {
+        setQuestion(response.data.question);
+        setPrompt(response.data.prompt);
+        setAnswer(response.data.answer);
+        setApp(response.data._id);
+        console.log(response.data);
+      }
     } catch (error) {
       console.log(error);
     }
   };
+  
 
   const getUser = async () => {
     try {
-      let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/${user._id}`
-      );
-      setResults(response.data.results);
+      if (user) {
+        let response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/profile/${user._id}`
+        );
+        setResults(response.data.results);
+      }
     } catch (error) {
       console.log(error);
     }
   };
+  
 
   useEffect(() => {
     getMarvbot();
@@ -45,24 +50,28 @@ function Marvbot() {
   const handleQuestion = (e) => setQuestion(e.target.value);
   const token = localStorage.getItem("authToken");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const body = { prompt, question, answer };
 
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/app/marvbot`, body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(() => {
+    try {
+     const marvinho = await axios
+        .post(`${process.env.REACT_APP_API_URL}/app/marvbot`, body, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        console.log(marvinho)
         setQuestion(question);
         setAnswer(answer);
         getUser();
-      })
-      .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error)
+    }
+
   };
+
+  
 
   return (
     <div>
