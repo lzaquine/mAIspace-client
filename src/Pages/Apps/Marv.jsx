@@ -102,26 +102,27 @@ function Marvbot() {
       </form>
 
       <div className="myChatDiv" ref={chatDivRef}>
-      {results &&
-  results
-    .filter((el) => el.app === marvbotData)
-    .map((el, index) => {
-      return (
-        <div key={index} className="flex flex-col p-4 mb-2 chatDiv">
-          <div className="text-left font-bold flex-row mb-6">
-            <p className="text-[#423f3f]">You: {el.question}</p>
+  {results &&
+    marvbotData &&
+    results
+      .filter((el) => el.app === marvbotData?.name)
+      .map((el, index) => {
+        return (
+          <div key={index} className="flex flex-col p-4 mb-2 chatDiv">
+            <div className="text-left font-bold flex-row mb-6">
+              <p className="text-[#423f3f]">You: {el.question}</p>
+            </div>
+            <div className="text-black">
+              <p>{el.answer}</p>
+            </div>
+            <div className="text-gray-500 text-sm text-right">
+              {new Date(el.createdAt).toLocaleString()}
+            </div>
           </div>
-          <div className="text-black">
-            <p>{el.answer}</p>
-          </div>
-          <div className="text-gray-500 text-sm text-right">
-            {new Date(el.createdAt).toLocaleString()}
-          </div>
-        </div>
-      );
-    })}
+        );
+      })}
+</div>
 
-      </div>
     </div>
   );
 }
