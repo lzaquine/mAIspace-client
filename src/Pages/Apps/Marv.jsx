@@ -19,10 +19,14 @@ function Marvbot() {
       if (response && response.data) {
         // Extract the array of questions and answers
         const marvbotData = response.data;
+        console.log(marvbotData)
         const { updatedAt } = marvbotData;
-        
+        console.log(marvbotData)
+        // Convert the string to an array
+        const sortedQa = JSON.parse(updatedAt);
+        console.log(sortedQa)
         // Sort the array of questions and answers by date
-        const sortedQa = updatedAt.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        sortedQa.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   
         // Set the sorted array of questions and answers to state
         setMarvbotData({ ...marvbotData, updatedAt: sortedQa });
@@ -31,6 +35,7 @@ function Marvbot() {
       console.log(error);
     }
   };
+  
   
   
   
