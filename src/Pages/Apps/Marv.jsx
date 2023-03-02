@@ -17,21 +17,25 @@ function Marvbot() {
         `${process.env.REACT_APP_API_URL}/app/marvbot`
       );
       if (response && response.data) {
-        const sortedData = response.data.sort((a, b) =>
-          new Date(a.createdAt) - new Date(b.createdAt)
-        );
-        setResults(sortedData);
-        setQuestion(sortedData[0].question);
-        setPrompt(sortedData[0].prompt);
-        setAnswer(sortedData[0].answer);
-        setApp(sortedData[0]._id);
-        console.log(sortedData);
+        if (Array.isArray(response.data)) {
+          // If the response is an array, sort it by the date created
+          response.data.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          });
+          setQuestion(response.data[0].question);
+          setPrompt(response.data[0].prompt);
+          setAnswer(response.data[0].answer);
+          setApp(response.data[0]._id);
+        } else {
+          // If the response is not an array, log an error
+          console.error('Unexpected response format:', response.data);
+        }
       }
-      
     } catch (error) {
       console.log(error);
     }
   };
+  
   
 
   const getUser = async () => {
