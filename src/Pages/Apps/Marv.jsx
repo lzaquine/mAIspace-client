@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
+import NavbarMarv from "../../components/NavbarMarv.jsx";
 
 function Marvbot() {
   const [prompt, setPrompt] = useState(null);
@@ -15,7 +16,6 @@ function Marvbot() {
       let response = await axios.get(
         `${process.env.REACT_APP_API_URL}/app/marvbot`
       );
-      console.log(response)
       if (response && response.data) {
         setQuestion(response.data.question);
         setPrompt(response.data.prompt);
@@ -76,22 +76,7 @@ function Marvbot() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <input
-            type="text"
-            name="question"
-            className="input input-bordered w-full rounded-lg max-w-xs mb-16 text-center justify-center"
-            placeholder="Who are you?"
-            onChange={(e) => setQuestion(e.target.value)}
-            value={question}
-          />
-          <button className="" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
-
+    <NavbarMarv/>
       <div className="myChatDiv">
         {results &&
           results
@@ -108,6 +93,21 @@ function Marvbot() {
                 </div>
               );
             })}
+            <form onSubmit={handleSubmit}>
+        <div className="input-container">
+          <input
+            type="text"
+            name="question"
+            className="input input-bordered w-full rounded-lg max-w-xs mb-16 text-center justify-center"
+            placeholder="Who are you?"
+            onChange={(e) => setQuestion(e.target.value)}
+            value={question}
+          />
+          <button className="" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
       </div>
     </div>
   );
