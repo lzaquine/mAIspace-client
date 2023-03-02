@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
 
@@ -9,6 +9,7 @@ function Marvbot() {
   const [results, setResults] = useState(null);
   const [app, setApp] = useState(null);
   const { user } = useContext(AuthContext);
+  const chatDivRef = useRef(null);
 
   const getMarvbot = async () => {
     try {
@@ -16,12 +17,17 @@ function Marvbot() {
         `${process.env.REACT_APP_API_URL}/app/marvbot`
       );
       if (response && response.data) {
-        setQuestion(response.data.question);
-        setPrompt(response.data.prompt);
-        setAnswer(response.data.answer);
-        setApp(response.data._id);
-        console.log(response.data);
+        const sortedData = response.data.sort((a, b) =>
+          new Date(a.createdAt) - new Date(b.createdAt)
+        );
+        setResults(sortedData);
+        setQuestion(sortedData[0].question);
+        setPrompt(sortedData[0].prompt);
+        setAnswer(sortedData[0].answer);
+        setApp(sortedData[0]._id);
+        console.log(sortedData);
       }
+      
     } catch (error) {
       console.log(error);
     }
@@ -43,9 +49,12 @@ function Marvbot() {
   
 
   useEffect(() => {
+    if (chatDivRef.current) {
+      chatDivRef.current.scrollTop = chatDivRef.current.scrollHeight;
+    }
     getMarvbot();
     getUser();
-  }, [user]);
+  }, [results]);
 
   /* const handleQuestion = (e) => setQuestion(e.target.value); */
   const token = localStorage.getItem("authToken");
@@ -91,22 +100,26 @@ function Marvbot() {
         </div>
       </form>
 
-      <div>
-        {results &&
-          results
-            .filter((el) => el.app === app)
-            .map((el, index) => {
-              return (
-                <div
-                  key={index}
-                  className="flex flex-col p-4 mb-2 rounded-lg chatDiv"
-                >
-               
-                  <div className="text-left font-bold flex-row mb-6"><p className="text-[#423f3f]">You: {el.question}</p></div>
-                  <div className="text-black"><p>{el.answer}</p></div>
-                </div>
-              );
-            })}
+      <div className="myChatDiv" ref={chatDivRef}>
+      {results &&
+  results
+    .filter((el) => el.app === app)
+    .map((el, index) => {
+      return (
+        <div key={index} className="flex flex-col p-4 mb-2 chatDiv">
+          <div className="text-left font-bold flex-row mb-6">
+            <p className="text-[#423f3f]">You: {el.question}</p>
+          </div>
+          <div className="text-black">
+            <p>{el.answer}</p>
+          </div>
+          <div className="text-gray-500 text-sm text-right">
+            {new Date(el.createdAt).toLocaleString()}
+          </div>
+        </div>
+      );
+    })}
+
       </div>
     </div>
   );

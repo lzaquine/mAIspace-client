@@ -26,9 +26,13 @@ body {
 }
 
 .chatDiv {
-  background-image: linear-gradient(#ffffff 50%, #66b1d6 0%);
+  background-image: linear-gradient(#ffffff 50%, #9fdfff 0%);
 }
 
+.myChatDiv {
+  margin-top: 100px;
+  
+}
 /* AI USER INPUT */
 
 .input-container input::placeholder {
