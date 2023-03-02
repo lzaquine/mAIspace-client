@@ -7,7 +7,7 @@ function Marvbot() {
   const [question, setQuestion] = useState(null);
   const [answer, setAnswer] = useState("");
   const [results, setResults] = useState(null);
-  const [app, setApp] = useState(null);
+  const [marvbotData, setMarvbotData] = useState(null);
   const { user } = useContext(AuthContext);
   const chatDivRef = useRef(null);
 
@@ -17,24 +17,21 @@ function Marvbot() {
         `${process.env.REACT_APP_API_URL}/app/marvbot`
       );
       if (response && response.data) {
-        if (Array.isArray(response.data)) {
-          // If the response is an array, sort it by the date created
-          response.data.sort((a, b) => {
-            return new Date(b.createdAt) - new Date(a.createdAt);
-          });
-          setQuestion(response.data[0].question);
-          setPrompt(response.data[0].prompt);
-          setAnswer(response.data[0].answer);
-          setApp(response.data[0]._id);
-        } else {
-          // If the response is not an array, log an error
-          console.error('Unexpected response format:', response.data);
-        }
+        // Extract the array of questions and answers
+        const marvbotData = response.data;
+        const { updatedAt } = marvbotData;
+        
+        // Sort the array of questions and answers by date
+        const sortedQa = updatedAt.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  
+        // Set the sorted array of questions and answers to state
+        setMarvbotData({ ...marvbotData, updatedAt: sortedQa });
       }
     } catch (error) {
       console.log(error);
     }
   };
+  
   
   
 
@@ -107,7 +104,7 @@ function Marvbot() {
       <div className="myChatDiv" ref={chatDivRef}>
       {results &&
   results
-    .filter((el) => el.app === app)
+    .filter((el) => el.app === marvbotData)
     .map((el, index) => {
       return (
         <div key={index} className="flex flex-col p-4 mb-2 chatDiv">
