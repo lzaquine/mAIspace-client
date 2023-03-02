@@ -15,18 +15,14 @@ function Marvbot() {
       let response = await axios.get(
         `${process.env.REACT_APP_API_URL}/app/marvbot`
       );
+      console.log(response)
       if (response && response.data) {
-        const sortedData = response.data.sort((a, b) =>
-          new Date(a.createdAt) - new Date(b.createdAt)
-        );
-        setResults(sortedData);
-        setQuestion(sortedData[0].question);
-        setPrompt(sortedData[0].prompt);
-        setAnswer(sortedData[0].answer);
-        setApp(sortedData[0]._id);
-        console.log(sortedData);
+        setQuestion(response.data.question);
+        setPrompt(response.data.prompt);
+        setAnswer(response.data.answer);
+        setApp(response.data._id);
+        console.log(response.data);
       }
-      
     } catch (error) {
       console.log(error);
     }
@@ -97,25 +93,21 @@ function Marvbot() {
       </form>
 
       <div className="myChatDiv">
-      {results &&
-  results
-    .filter((el) => el.app === app)
-    .map((el, index) => {
-      return (
-        <div key={index} className="flex flex-col p-4 mb-2 chatDiv">
-          <div className="text-left font-bold flex-row mb-6">
-            <p className="text-[#423f3f]">You: {el.question}</p>
-          </div>
-          <div className="text-black">
-            <p>{el.answer}</p>
-          </div>
-          <div className="text-gray-500 text-sm text-right">
-            {new Date(el.createdAt).toLocaleString()}
-          </div>
-        </div>
-      );
-    })}
-
+        {results &&
+          results
+            .filter((el) => el.app === app)
+            .map((el, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col p-4 mb-2 chatDiv"
+                >
+               
+                  <div className="text-left font-bold flex-row mb-6"><p className="text-[#423f3f]">You: {el.question}</p></div>
+                  <div className="text-black"><p>{el.answer}</p></div>
+                </div>
+              );
+            })}
       </div>
     </div>
   );
