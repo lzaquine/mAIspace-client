@@ -42,8 +42,9 @@ body {
 
 .input-container input {
   position: fixed;
+  top: 10%;
   left: 50%;
-  transform: translateX(-50%) translateY(-150%);
+  transform: translateX(-50%);
   width: 100%;
   max-width: 70%;
   padding: 0;
