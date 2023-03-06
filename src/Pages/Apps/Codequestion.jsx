@@ -1,10 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
-import Navbar from "../../components/NavbarCode";
-{
-  /* STILL NEED TO UPDATE IT */
-}
+import Navbar from "../../components/Navbar";
 
 function Codequestion() {
   const [prompt, setPrompt] = useState(null);
@@ -70,7 +67,7 @@ function Codequestion() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar name="CODING QUESTIONS" link="/app/codequestion" />
       <div className="myChatDiv">
         {results &&
           results
