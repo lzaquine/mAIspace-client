@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
-import NavbarMarv from "../../components/NavbarMarv.jsx";
+import Navbar from "../../components/NavbarCode";
 {
   /* STILL NEED TO UPDATE IT */
 }
@@ -70,7 +70,7 @@ function Codequestion() {
 
   return (
     <div>
-      <NavbarMarv />
+      <Navbar />
       <div className="myChatDiv">
         {results &&
           results
