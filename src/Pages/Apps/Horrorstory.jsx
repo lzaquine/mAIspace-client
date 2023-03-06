@@ -67,7 +67,7 @@ function Horrorstory() {
 
   return (
     <div>
-      <Navbar name="HORROR STORY" link="/app/Horrostory" />
+      <Navbar name="HORROR STORY" link="/app/Horrorstory" />
       <div className="myChatDiv">
         {results &&
           results
