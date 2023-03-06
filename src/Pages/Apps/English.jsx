@@ -89,7 +89,6 @@ function English() {
 
   return (
     <div>
-    <NavbarMarv />
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -143,7 +142,7 @@ function English() {
                     onChange={(e) => setQuestion(e.target.value)}
                     value={question}
                   />
-                  <button className="" type="submit">
+                  <button className="" type="submit" onClick={notify}>
                     Submit
                   </button>
                 </div>
