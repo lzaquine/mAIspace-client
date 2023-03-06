@@ -122,10 +122,10 @@ Pages:
 
 | HTTP Method | URL                    | Request Body                 | Success status | Error Status | Description                                                                                                                     |
 | ----------- | ---------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| POST        | `/auth/signup`         | {name, email, password, field, profileImg}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/signup`         | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
 | POST        | `/auth/login`          | {email, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
 | GET         | `/profile/:id`     |                              |                |              | show specific profile                                                                                                            |
-| PUT         | `/editprofile/:id`     | { name, profileImg }                | 201            | 400          | edit profile                                                                                                                     |
+| PUT         | `/editprofile/:id`     | { name, email }                | 201            | 400          | edit profile                                                                                                                     |
 | DELETE      | `/profile/:id`     |                              | 200            | 400          | delete profile                                                                                                                   |
 | GET         | `/app`             |                              |                | 400          | Show all apps                                                                                                            |
 | POST        | `/app`             | { model, prompt, temperature, max_tokens, top_p, frequency_penalty, presence_penalty }       | 201            | 400          | Create and save a new app                                                                                                |
@@ -145,7 +145,7 @@ Pages:
 
 
 <a href="https://maispace.netlify.com" target="_blank">
-<img src="maispacee.png" alt="mAIspace"/></a>
+<img src="src/Image/maispace_front.png" alt="mAIspace"/></a>
 
 
 <br><br>
