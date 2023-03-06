@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ name, link }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { loggedIn, logout } = useContext(AuthContext);
 
@@ -42,7 +42,7 @@ function Navbar() {
             <Link to='/app' className="px-4 text-black hover:text-[#53595c]">PLAYGROUND</Link>
           </li>
           <li  className="underline">
-            <Link to='/app/Marvbot' className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">MARV</Link>
+            <Link to={link} className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">{name}</Link>
           </li>
           {!loggedIn && (
           <li>
@@ -100,7 +100,7 @@ function Navbar() {
             <Link to='/app' className="px-4 text-black hover:text-[#53595c]">PLAYGROUND</Link>
           </li>
           <li  className="underline">
-            <Link to='/app/Marvbot' className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">MARV</Link>
+          <Link to={link} className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">{name}</Link>
           </li>
             {!loggedIn && (
           <li>
