@@ -27,7 +27,6 @@ function Marvbot() {
       console.log(error);
     }
   };
-  
 
   const getUser = async () => {
     try {
@@ -41,14 +40,12 @@ function Marvbot() {
       console.log(error);
     }
   };
-  
 
   useEffect(() => {
     getMarvbot();
     getUser();
   }, [user]);
 
-  /* const handleQuestion = (e) => setQuestion(e.target.value); */
   const token = localStorage.getItem("authToken");
 
   const handleSubmit = async (e) => {
@@ -56,58 +53,58 @@ function Marvbot() {
     const body = { prompt, question, answer };
 
     try {
-     const marvinho = await axios
-        .post(`${process.env.REACT_APP_API_URL}/app/marvbot`, body, {
+      const marvinho = await axios.post(
+        `${process.env.REACT_APP_API_URL}/app/marvbot`,
+        body,
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        })
-        console.log(marvinho)
-        setQuestion(question);
-        setAnswer(answer);
-        getUser();
+        }
+      );
+      console.log(marvinho);
+      setQuestion(question);
+      setAnswer(answer);
+      getUser();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
   };
-
-  
 
   return (
     <div>
-    <NavbarMarv/>
+      <NavbarMarv />
       <div className="myChatDiv">
         {results &&
           results
             .filter((el) => el.app === app)
             .map((el, index) => {
               return (
-                <div
-                  key={index}
-                  className="flex flex-col p-4 mb-2 chatDiv"
-                >
-               
-                  <div className="text-left font-bold flex-row mb-6"><p className="text-[#423f3f]">You: {el.question}</p></div>
-                  <div className="text-black"><p>{el.answer}</p></div>
+                <div key={index} className="flex flex-col p-4 mb-2 chatDiv">
+                  <div className="text-left font-bold flex-row mb-6">
+                    <p className="text-[#423f3f]">You: {el.question}</p>
+                  </div>
+                  <div className="text-black">
+                    <p>{el.answer}</p>
+                  </div>
                 </div>
               );
             })}
-            <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <input
-            type="text"
-            name="question"
-            className="input input-bordered w-full rounded-lg max-w-xs mb-16 text-center justify-center"
-            placeholder="Who are you?"
-            onChange={(e) => setQuestion(e.target.value)}
-            value={question}
-          />
-          <button className="" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div className="input-container">
+            <input
+              type="text"
+              name="question"
+              className="input input-bordered w-full rounded-lg max-w-xs mb-16 text-center justify-center"
+              placeholder="Who are you?"
+              onChange={(e) => setQuestion(e.target.value)}
+              value={question}
+            />
+            <button className="" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
