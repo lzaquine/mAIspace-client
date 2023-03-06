@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
-import NavbarMarv from "../../components/NavbarMarv.jsx";
+import Navbar from "../../components/Navbar.jsx";
 
 function Marvbot() {
   const [prompt, setPrompt] = useState(null);
@@ -73,7 +73,7 @@ function Marvbot() {
 
   return (
     <div>
-      <NavbarMarv />
+      <Navbar name="MARV" link="/app/marvbot" />
       <div className="myChatDiv">
         {results &&
           results
