@@ -4,10 +4,7 @@ import { AuthContext } from "../../context/auth.context";
 import BeatLoader from "react-spinners/BeatLoader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import NavbarMarv from "../../components/NavbarMarv.jsx";
-{
-  /* STILL NEED TO UPDATE IT */
-}
+import Navbar from "../../components/Navbar.jsx";
 
 function English() {
   const [prompt, setPrompt] = useState(null);
@@ -112,7 +109,7 @@ function English() {
           />
         ) : (
           <div>
-            <NavbarMarv />
+          <Navbar name="ENGLISH GRAMMAR" link="/app/english" />
             <div className="myChatDiv">
               {results &&
                 results
