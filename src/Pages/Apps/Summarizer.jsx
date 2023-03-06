@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
-import NavbarMarv from "../../components/NavbarMarv.jsx"; { /* STILL NEED TO UPDATE IT */ }
+import Navbar from "../../components/Navbar.jsx";
 
 function Summarizer() {
   const [prompt, setPrompt] = useState(null);
@@ -67,7 +67,7 @@ function Summarizer() {
 
   return (
     <div>
-      <NavbarMarv /> {/* STILL NEED TO UPDATE IT */}
+      <Navbar name="SUMMARIZER" link="/app/summarizer" />
       <div className="myChatDiv">
         {results &&
           results
