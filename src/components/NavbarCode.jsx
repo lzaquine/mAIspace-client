@@ -42,7 +42,7 @@ function Navbar() {
             <Link to='/app' className="px-4 text-black hover:text-[#53595c]">PLAYGROUND</Link>
           </li>
           <li  className="underline">
-            <Link to='/app/codequestion' className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">Code Question</Link>
+            <Link to='/app/codequestion' className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">CODING QUESTIONS</Link>
           </li>
           {!loggedIn && (
           <li>
@@ -100,7 +100,7 @@ function Navbar() {
             <Link to='/app' className="px-4 text-black hover:text-[#53595c]">PLAYGROUND</Link>
           </li>
           <li  className="underline">
-            <Link to='/app/codequestion' className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">Code Question</Link>
+            <Link to='/app/codequestion' className="px-4 text-[#66b1d6] hover:text-[#4e98bd]">CODING QUESTIONS</Link>
           </li>
             {!loggedIn && (
           <li>
