@@ -1,10 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/auth.context";
-import NavbarMarv from "../../components/NavbarMarv.jsx";
-{
-  /* STILL NEED TO UPDATE IT */
-}
+import Navbar from "../../components/Navbar.jsx";
 
 function Interview() {
   const [prompt, setPrompt] = useState(null);
@@ -70,7 +67,7 @@ function Interview() {
 
   return (
     <div>
-      <NavbarMarv />
+      <Navbar name="INTERVIEW" link="/app/interview" />
       <div className="myChatDiv">
         {results &&
           results
