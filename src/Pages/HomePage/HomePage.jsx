@@ -1,15 +1,23 @@
-import { useContext, useEffect  } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import maispace from "../../Image/maispace.png";
 import Blober from '../../components/Blober'
+import Modal from "react-modal";
 
 function HomePage() {
   const { loggedIn } = useContext(AuthContext);
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?";
+  const [showAlert, setShowAlert] = useState(false);
 
 
   useEffect(() => {
+    const hasAlertShown = localStorage.getItem("hasAlertShown");
+    if (!hasAlertShown) {
+      setShowAlert(true);
+      localStorage.setItem("hasAlertShown", "true");
+    }
+
     const yourAi = document.querySelector('.yourAi');
     const playground = document.querySelector('.playgroundHome');
 
@@ -52,9 +60,30 @@ function HomePage() {
     };
   }, []);
 
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
+     <Modal
+        isOpen={showAlert}
+        onRequestClose={handleCloseAlert}
+        className="custom-alert-modal"
+        overlayClassName="custom-alert-overlay"
+        ariaHideApp={false}
+      >
+        <div className="custom-alert-content">
+          <h2 className="custom-alert-title">Alert</h2>
+          <p className="custom-alert-message">
+          Due to API restrictions ($), the functionality of the applications isn't working anymore. Sorry for the disturbance.
+          </p>
+          <button className="custom-alert-close-btn" onClick={handleCloseAlert}>
+            Close
+          </button>
+        </div>
+      </Modal>
      <Blober/>
       <img src={maispace} alt="logo" className="maiLogo w-48 md:w-96 mb-8 md:mb-16 mt-8" />
 
